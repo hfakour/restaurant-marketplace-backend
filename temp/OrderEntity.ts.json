@@ -1,0 +1,186 @@
+{
+  "data": {
+    "_id": 11000,
+    "properties": {
+      "id": {
+        "name": "id",
+        "kind": "scalar",
+        "primary": true,
+        "type": "string",
+        "runtimeType": "string",
+        "array": false
+      },
+      "user": {
+        "name": "user",
+        "kind": "m:1",
+        "cascade": ["persist"],
+        "owner": true,
+        "type": "User",
+        "array": false,
+        "runtimeType": "User"
+      },
+      "restaurant": {
+        "name": "restaurant",
+        "kind": "m:1",
+        "cascade": ["persist"],
+        "owner": true,
+        "type": "Restaurant",
+        "array": false,
+        "runtimeType": "Restaurant"
+      },
+      "deliveryAddress": {
+        "name": "deliveryAddress",
+        "kind": "m:1",
+        "cascade": ["persist"],
+        "owner": true,
+        "type": "Address",
+        "array": false,
+        "runtimeType": "Address"
+      },
+      "items": {
+        "name": "items",
+        "kind": "1:m",
+        "cascade": ["persist"],
+        "type": "OrderItemEntity",
+        "array": false,
+        "runtimeType": "Collection<OrderItemEntity, object>"
+      },
+      "subtotal": {
+        "name": "subtotal",
+        "kind": "scalar",
+        "getter": false,
+        "setter": false,
+        "type": "number",
+        "array": false,
+        "runtimeType": "number"
+      },
+      "tax": {
+        "name": "tax",
+        "kind": "scalar",
+        "getter": false,
+        "setter": false,
+        "type": "number",
+        "array": false,
+        "runtimeType": "number"
+      },
+      "deliveryFee": {
+        "name": "deliveryFee",
+        "kind": "scalar",
+        "getter": false,
+        "setter": false,
+        "type": "number",
+        "array": false,
+        "runtimeType": "number"
+      },
+      "total": {
+        "name": "total",
+        "kind": "scalar",
+        "getter": false,
+        "setter": false,
+        "type": "number",
+        "array": false,
+        "runtimeType": "number"
+      },
+      "status": {
+        "name": "status",
+        "kind": "scalar",
+        "type": "string",
+        "getter": false,
+        "setter": false,
+        "default": "PENDING",
+        "array": false,
+        "runtimeType": "OrderStatus"
+      },
+      "notes": {
+        "name": "notes",
+        "kind": "scalar",
+        "nullable": true,
+        "getter": false,
+        "setter": false,
+        "type": "string",
+        "array": false,
+        "runtimeType": "string",
+        "optional": true
+      },
+      "paymentMethod": {
+        "name": "paymentMethod",
+        "kind": "scalar",
+        "type": "string",
+        "getter": false,
+        "setter": false,
+        "array": false,
+        "runtimeType": "PaymentMethod"
+      },
+      "payment": {
+        "name": "payment",
+        "kind": "1:1",
+        "cascade": ["persist"],
+        "nullable": true,
+        "owner": false,
+        "unique": false,
+        "type": "PaymentEntity",
+        "array": false,
+        "runtimeType": "PaymentEntity",
+        "optional": true
+      },
+      "isPaid": {
+        "name": "isPaid",
+        "kind": "scalar",
+        "getter": false,
+        "setter": false,
+        "type": "boolean",
+        "default": false,
+        "runtimeType": "boolean",
+        "array": false
+      },
+      "coupon": {
+        "name": "coupon",
+        "kind": "m:1",
+        "cascade": ["persist"],
+        "nullable": true,
+        "owner": true,
+        "type": "CouponEntity",
+        "array": false,
+        "runtimeType": "CouponEntity",
+        "optional": true
+      },
+      "createdAt": {
+        "name": "createdAt",
+        "kind": "scalar",
+        "type": "date",
+        "getter": false,
+        "setter": false,
+        "array": false,
+        "runtimeType": "Date"
+      },
+      "updatedAt": {
+        "name": "updatedAt",
+        "kind": "scalar",
+        "type": "date",
+        "getter": false,
+        "setter": false,
+        "array": false,
+        "runtimeType": "Date"
+      }
+    },
+    "primaryKeys": ["id"],
+    "filters": {},
+    "hooks": {},
+    "indexes": [],
+    "uniques": [],
+    "className": "OrderEntity",
+    "path": "./src/domain/user/entities/order.entity.ts",
+    "name": "OrderEntity",
+    "abstract": false,
+    "internal": true,
+    "constructorParams": [],
+    "toJsonParams": [],
+    "useCache": true,
+    "compositePK": false,
+    "simplePK": true,
+    "collection": "order_entity"
+  },
+  "origin": "./src/domain/user/entities/order.entity.ts",
+  "hash": "01d53865cfb62111597638790607a079",
+  "version": "6.4.15"
+}

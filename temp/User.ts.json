@@ -1,0 +1,167 @@
+{
+  "data": {
+    "_id": 15000,
+    "properties": {
+      "id": {
+        "name": "id",
+        "kind": "scalar",
+        "primary": true,
+        "type": "string",
+        "runtimeType": "string",
+        "array": false
+      },
+      "email": {
+        "name": "email",
+        "kind": "scalar",
+        "unique": true,
+        "getter": false,
+        "setter": false,
+        "type": "string",
+        "array": false,
+        "runtimeType": "string"
+      },
+      "password": {
+        "name": "password",
+        "kind": "scalar",
+        "getter": false,
+        "setter": false,
+        "type": "string",
+        "array": false,
+        "runtimeType": "string"
+      },
+      "role": {
+        "name": "role",
+        "kind": "scalar",
+        "getter": false,
+        "setter": false,
+        "type": "UserRole",
+        "array": false,
+        "runtimeType": "UserRole"
+      },
+      "fullName": {
+        "name": "fullName",
+        "kind": "scalar",
+        "nullable": true,
+        "getter": false,
+        "setter": false,
+        "type": "string",
+        "array": false,
+        "runtimeType": "string",
+        "optional": true
+      },
+      "phone": {
+        "name": "phone",
+        "kind": "scalar",
+        "nullable": true,
+        "getter": false,
+        "setter": false,
+        "type": "string",
+        "array": false,
+        "runtimeType": "string",
+        "optional": true
+      },
+      "imageUrl": {
+        "name": "imageUrl",
+        "kind": "scalar",
+        "nullable": true,
+        "getter": false,
+        "setter": false,
+        "type": "string",
+        "array": false,
+        "runtimeType": "string",
+        "optional": true
+      },
+      "addresses": {
+        "name": "addresses",
+        "kind": "1:m",
+        "cascade": ["persist"],
+        "nullable": true,
+        "type": "Address",
+        "array": false,
+        "runtimeType": "Collection<Address, object>"
+      },
+      "reviews": {
+        "name": "reviews",
+        "kind": "1:m",
+        "cascade": ["persist"],
+        "nullable": true,
+        "type": "ReviewEntity",
+        "array": false,
+        "runtimeType": "Collection<ReviewEntity, object>"
+      },
+      "wishlists": {
+        "name": "wishlists",
+        "kind": "1:m",
+        "cascade": ["persist"],
+        "nullable": true,
+        "type": "WishlistEntity",
+        "array": false,
+        "runtimeType": "Collection<WishlistEntity, object>"
+      },
+      "favorites": {
+        "name": "favorites",
+        "kind": "1:m",
+        "cascade": ["persist"],
+        "nullable": true,
+        "type": "FavoriteEntity",
+        "array": false,
+        "runtimeType": "Collection<FavoriteEntity, object>"
+      },
+      "orders": {
+        "name": "orders",
+        "kind": "1:m",
+        "cascade": ["persist"],
+        "nullable": true,
+        "type": "OrderEntity",
+        "array": false,
+        "runtimeType": "Collection<OrderEntity, object>"
+      },
+      "reservations": {
+        "name": "reservations",
+        "kind": "1:m",
+        "cascade": ["persist"],
+        "nullable": true,
+        "type": "ReservationEntity",
+        "array": false,
+        "runtimeType": "Collection<ReservationEntity, object>"
+      },
+      "createdAt": {
+        "name": "createdAt",
+        "kind": "scalar",
+        "type": "date",
+        "getter": false,
+        "setter": false,
+        "array": false,
+        "runtimeType": "Date"
+      },
+      "updatedAt": {
+        "name": "updatedAt",
+        "kind": "scalar",
+        "type": "date",
+        "getter": false,
+        "setter": false,
+        "array": false,
+        "runtimeType": "Date"
+      }
+    },
+    "primaryKeys": ["id"],
+    "filters": {},
+    "hooks": {},
+    "indexes": [],
+    "uniques": [],
+    "className": "User",
+    "path": "./src/domain/user/entities/user.entity.ts",
+    "name": "User",
+    "abstract": false,
+    "internal": true,
+    "constructorParams": ["email", "password", "role"],
+    "toJsonParams": [],
+    "useCache": true,
+    "compositePK": false,
+    "simplePK": true,
+    "collection": "user"
+  },
+  "origin": "./src/domain/user/entities/user.entity.ts",
+  "hash": "f7d7b9b32ffcd775d42a8889eeb7af4d",
+  "version": "6.4.15"
+}

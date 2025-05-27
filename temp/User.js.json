@@ -1,0 +1,80 @@
+{
+  "data": {
+    "_id": 0,
+    "properties": {
+      "id": {
+        "name": "id",
+        "kind": "scalar",
+        "primary": true,
+        "type": "string",
+        "runtimeType": "string",
+        "array": false
+      },
+      "email": {
+        "name": "email",
+        "kind": "scalar",
+        "unique": true,
+        "getter": false,
+        "setter": false,
+        "type": "string",
+        "array": false,
+        "runtimeType": "string"
+      },
+      "password": {
+        "name": "password",
+        "kind": "scalar",
+        "getter": false,
+        "setter": false,
+        "type": "string",
+        "array": false,
+        "runtimeType": "string"
+      },
+      "role": {
+        "name": "role",
+        "kind": "scalar",
+        "getter": false,
+        "setter": false,
+        "type": "\"customer\" | \"courier\" | \"admin\"",
+        "array": false,
+        "runtimeType": "\"customer\" | \"courier\" | \"admin\""
+      },
+      "createdAt": {
+        "name": "createdAt",
+        "kind": "scalar",
+        "type": "date",
+        "getter": false,
+        "setter": false,
+        "array": false,
+        "runtimeType": "Date"
+      },
+      "updatedAt": {
+        "name": "updatedAt",
+        "kind": "scalar",
+        "type": "date",
+        "getter": false,
+        "setter": false,
+        "array": false,
+        "runtimeType": "Date"
+      }
+    },
+    "primaryKeys": ["id"],
+    "filters": {},
+    "hooks": {},
+    "indexes": [],
+    "uniques": [],
+    "className": "User",
+    "path": "./dist/src/domain/user/entities/user.entity.js",
+    "name": "User",
+    "abstract": false,
+    "internal": true,
+    "constructorParams": ["email", "password", "role"],
+    "toJsonParams": [],
+    "useCache": true,
+    "compositePK": false,
+    "simplePK": true,
+    "collection": "user"
+  },
+  "origin": "./dist/src/domain/user/entities/user.entity.js",
+  "hash": "77e36ca00828951ae19069262ee48a69",
+  "version": "6.4.15"
+}

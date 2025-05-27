@@ -1,6 +1,12 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { MikroOrmModule } from '@mikro-orm/nestjs';
 import configuration from './config/configuration';
+import mikroOrmConfig from '../mikro-orm.config';
+import { UserModule } from './modules/user/user.module';
+import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver } from '@nestjs/apollo';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -8,6 +14,20 @@ import configuration from './config/configuration';
       isGlobal: true,
       load: [configuration],
     }),
+    MikroOrmModule.forRootAsync({
+      inject: [ConfigService],
+      useFactory: mikroOrmConfig,
+    }),
+
+    GraphQLModule.forRoot({
+      driver: ApolloDriver,
+      autoSchemaFile: join(process.cwd(), 'src/graphql/schema.gql'),
+      sortSchema: true,
+      playground: true, // ✅ Enables GraphQL Playground at /graphql
+      installSubscriptionHandlers: true, // For future WebSocket support
+    }),
+
+    UserModule,
   ],
 })
 export class AppModule {}

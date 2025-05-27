@@ -6,7 +6,14 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   {
-    ignores: ['eslint.config.mjs'],
+    // 🛑 This tells ESLint to ignore all these files
+    ignores: [
+      'eslint.config.mjs',
+      'mikro-orm.config.js',   // 🛠️ Fixes the error you're getting
+      '*.js',                  // 🛡️ Optional: Ignore all JS config files
+      'dist',                  // 🚫 Ignore compiled files
+      'node_modules'           // 📦 Never lint dependencies
+    ],
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
@@ -28,7 +35,7 @@ export default tseslint.config(
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-floating-promises': 'warn',
-      '@typescript-eslint/no-unsafe-argument': 'warn'
+      '@typescript-eslint/no-unsafe-argument': 'warn',
     },
   },
 );

@@ -1,0 +1,146 @@
+{
+  "data": {
+    "_id": 34000,
+    "properties": {
+      "id": {
+        "name": "id",
+        "kind": "scalar",
+        "primary": true,
+        "type": "string",
+        "runtimeType": "string",
+        "array": false
+      },
+      "title": {
+        "name": "title",
+        "kind": "scalar",
+        "getter": false,
+        "setter": false,
+        "type": "string",
+        "array": false,
+        "runtimeType": "string"
+      },
+      "body": {
+        "name": "body",
+        "kind": "scalar",
+        "getter": false,
+        "setter": false,
+        "type": "string",
+        "array": false,
+        "runtimeType": "string"
+      },
+      "imageUrl": {
+        "name": "imageUrl",
+        "kind": "scalar",
+        "nullable": true,
+        "getter": false,
+        "setter": false,
+        "type": "string",
+        "array": false,
+        "runtimeType": "string",
+        "optional": true
+      },
+      "type": {
+        "name": "type",
+        "kind": "scalar",
+        "type": "string",
+        "getter": false,
+        "setter": false,
+        "array": false,
+        "runtimeType": "NotificationType"
+      },
+      "deeplink": {
+        "name": "deeplink",
+        "kind": "scalar",
+        "nullable": true,
+        "getter": false,
+        "setter": false,
+        "type": "string",
+        "array": false,
+        "runtimeType": "string",
+        "optional": true
+      },
+      "targetUser": {
+        "name": "targetUser",
+        "kind": "m:1",
+        "cascade": ["persist"],
+        "nullable": true,
+        "owner": true,
+        "type": "User",
+        "array": false,
+        "runtimeType": "User",
+        "optional": true
+      },
+      "targetRestaurant": {
+        "name": "targetRestaurant",
+        "kind": "m:1",
+        "cascade": ["persist"],
+        "nullable": true,
+        "owner": true,
+        "type": "Restaurant",
+        "array": false,
+        "runtimeType": "Restaurant",
+        "optional": true
+      },
+      "supportMessage": {
+        "name": "supportMessage",
+        "kind": "m:1",
+        "cascade": ["persist"],
+        "nullable": true,
+        "owner": true,
+        "type": "SupportMessageEntity",
+        "array": false,
+        "runtimeType": "SupportMessageEntity",
+        "optional": true
+      },
+      "isRead": {
+        "name": "isRead",
+        "kind": "scalar",
+        "getter": false,
+        "setter": false,
+        "type": "boolean",
+        "default": false,
+        "runtimeType": "boolean",
+        "array": false
+      },
+      "sentAt": {
+        "name": "sentAt",
+        "kind": "scalar",
+        "type": "date",
+        "getter": false,
+        "setter": false,
+        "array": false,
+        "runtimeType": "Date"
+      },
+      "readAt": {
+        "name": "readAt",
+        "kind": "scalar",
+        "type": "date",
+        "nullable": true,
+        "getter": false,
+        "setter": false,
+        "array": false,
+        "runtimeType": "Date",
+        "optional": true
+      }
+    },
+    "primaryKeys": ["id"],
+    "filters": {},
+    "hooks": {},
+    "indexes": [],
+    "uniques": [],
+    "className": "Notification",
+    "path": "./src/domain/user/entities/notification.entity.ts",
+    "name": "Notification",
+    "abstract": false,
+    "internal": true,
+    "constructorParams": [],
+    "toJsonParams": [],
+    "useCache": true,
+    "compositePK": false,
+    "simplePK": true,
+    "collection": "notification"
+  },
+  "origin": "./src/domain/user/entities/notification.entity.ts",
+  "hash": "77664ccd4838bed74a86acba6ea1d58d",
+  "version": "6.4.15"
+}

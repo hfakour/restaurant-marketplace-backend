@@ -1,0 +1,143 @@
+{
+  "data": {
+    "_id": 33000,
+    "properties": {
+      "id": {
+        "name": "id",
+        "kind": "scalar",
+        "primary": true,
+        "type": "string",
+        "runtimeType": "string",
+        "array": false
+      },
+      "content": {
+        "name": "content",
+        "kind": "scalar",
+        "getter": false,
+        "setter": false,
+        "type": "string",
+        "array": false,
+        "runtimeType": "string"
+      },
+      "type": {
+        "name": "type",
+        "kind": "scalar",
+        "type": "string",
+        "getter": false,
+        "setter": false,
+        "array": false,
+        "runtimeType": "SupportChatType"
+      },
+      "senderUser": {
+        "name": "senderUser",
+        "kind": "m:1",
+        "cascade": ["persist"],
+        "owner": true,
+        "type": "User",
+        "array": false,
+        "runtimeType": "User"
+      },
+      "receiverUser": {
+        "name": "receiverUser",
+        "kind": "m:1",
+        "cascade": ["persist"],
+        "nullable": true,
+        "owner": true,
+        "type": "User",
+        "array": false,
+        "runtimeType": "User",
+        "optional": true
+      },
+      "subject": {
+        "name": "subject",
+        "kind": "scalar",
+        "nullable": true,
+        "getter": false,
+        "setter": false,
+        "type": "string",
+        "array": false,
+        "runtimeType": "string",
+        "optional": true
+      },
+      "replyToMessageId": {
+        "name": "replyToMessageId",
+        "kind": "scalar",
+        "nullable": true,
+        "getter": false,
+        "setter": false,
+        "type": "string",
+        "array": false,
+        "runtimeType": "string",
+        "optional": true
+      },
+      "isRead": {
+        "name": "isRead",
+        "kind": "scalar",
+        "default": false,
+        "getter": false,
+        "setter": false,
+        "type": "boolean",
+        "runtimeType": "boolean",
+        "array": false
+      },
+      "isFromAdmin": {
+        "name": "isFromAdmin",
+        "kind": "scalar",
+        "getter": false,
+        "setter": false,
+        "type": "boolean",
+        "default": false,
+        "runtimeType": "boolean",
+        "array": false
+      },
+      "restaurant": {
+        "name": "restaurant",
+        "kind": "m:1",
+        "cascade": ["persist"],
+        "nullable": true,
+        "owner": true,
+        "type": "Restaurant",
+        "array": false,
+        "runtimeType": "Restaurant",
+        "optional": true
+      },
+      "createdAt": {
+        "name": "createdAt",
+        "kind": "scalar",
+        "type": "date",
+        "getter": false,
+        "setter": false,
+        "array": false,
+        "runtimeType": "Date"
+      },
+      "updatedAt": {
+        "name": "updatedAt",
+        "kind": "scalar",
+        "type": "date",
+        "getter": false,
+        "setter": false,
+        "array": false,
+        "runtimeType": "Date"
+      }
+    },
+    "primaryKeys": ["id"],
+    "filters": {},
+    "hooks": {},
+    "indexes": [],
+    "uniques": [],
+    "className": "SupportMessageEntity",
+    "path": "./src/domain/user/entities/support-message.entity.ts",
+    "name": "SupportMessageEntity",
+    "abstract": false,
+    "internal": true,
+    "constructorParams": [],
+    "toJsonParams": [],
+    "useCache": true,
+    "compositePK": false,
+    "simplePK": true,
+    "collection": "support_message_entity"
+  },
+  "origin": "./src/domain/user/entities/support-message.entity.ts",
+  "hash": "06b7a4339a7715ec069859d9962ae2a8",
+  "version": "6.4.15"
+}

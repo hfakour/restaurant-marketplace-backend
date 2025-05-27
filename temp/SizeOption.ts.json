@@ -1,0 +1,43 @@
+{
+  "data": {
+    "_id": 3000,
+    "properties": {
+      "name": {
+        "name": "name",
+        "kind": "scalar",
+        "getter": false,
+        "setter": false,
+        "type": "string",
+        "array": false,
+        "runtimeType": "string"
+      },
+      "additionalPrice": {
+        "name": "additionalPrice",
+        "kind": "scalar",
+        "getter": false,
+        "setter": false,
+        "type": "number",
+        "array": false,
+        "runtimeType": "number"
+      }
+    },
+    "primaryKeys": [],
+    "filters": {},
+    "hooks": {},
+    "indexes": [],
+    "uniques": [],
+    "className": "SizeOption",
+    "path": "./src/domain/user/entities/food.entity.ts",
+    "name": "SizeOption",
+    "embeddable": true,
+    "abstract": false,
+    "internal": true,
+    "constructorParams": [],
+    "toJsonParams": [],
+    "useCache": true,
+    "collection": "size_option"
+  },
+  "origin": "./src/domain/user/entities/food.entity.ts",
+  "hash": "2245de815adff3ca6f55e408cb7aff91",
+  "version": "6.4.15"
+}
