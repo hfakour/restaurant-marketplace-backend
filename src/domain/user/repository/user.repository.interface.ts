@@ -1,14 +1,15 @@
-import { User } from '../entities/user.entity'; // Strongly typed reference to domain entity
+import { UserRole } from '../entities/user-role.enum';
+import { User } from '../entities/user.entity';
 
-// ✅ Strongly typed repository interface
 export interface IUserRepository {
-  findById(id: string): Promise<User | null>;
-  findByEmail(email: string): Promise<User | null>;
-  create(user: User): Promise<User>;
-  update(user: User): Promise<User>;
-  delete(id: string): Promise<void>;
-  findAll(): Promise<User[]>;
-}
+  findById(id: string): Promise<User | null>; // Find a user by ID
+  findByEmail(email: string): Promise<User | null>; // Find user by email (used in login/register)
+  findAll(): Promise<User[]>; // Get all users
+  create(user: User): Promise<User>; // Persist new user
+  update(user: User): Promise<User>; // Update user
+  delete(id: string): Promise<void>; // Delete user by ID
 
-// ✅ Token for NestJS runtime injection
-export const USER_REPOSITORY = Symbol('USER_REPOSITORY');
+  // Optional business-specific queries
+  findByRole(role: UserRole): Promise<User[]>; // e.g., get all admins
+  existsByEmail(email: string): Promise<boolean>; // Useful for validations
+}
