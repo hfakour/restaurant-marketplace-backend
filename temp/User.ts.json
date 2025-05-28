@@ -162,6 +162,6 @@
     "collection": "user"
   },
   "origin": "./src/domain/user/entities/user.entity.ts",
-  "hash": "f7d7b9b32ffcd775d42a8889eeb7af4d",
+  "hash": "2d50678ba555c4dead7a6e3c0b8485ad",
   "version": "6.4.15"
 }

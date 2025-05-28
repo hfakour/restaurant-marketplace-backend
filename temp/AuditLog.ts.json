@@ -74,6 +74,6 @@
     "collection": "audit_log"
   },
   "origin": "./src/domain/user/entities/audit-log.entity.ts",
-  "hash": "cfcb34557eaf45082e4d824d47089658",
+  "hash": "dcd98a45f84aa87a01381a653f1ed146",
   "version": "6.4.15"
 }

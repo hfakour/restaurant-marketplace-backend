@@ -141,6 +141,6 @@
     "collection": "notification"
   },
   "origin": "./src/domain/user/entities/notification.entity.ts",
-  "hash": "77664ccd4838bed74a86acba6ea1d58d",
+  "hash": "798460a887867bdb8b671cdca19cbec6",
   "version": "6.4.15"
 }

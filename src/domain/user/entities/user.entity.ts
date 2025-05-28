@@ -1,4 +1,4 @@
-import { Entity, Property, PrimaryKey, OneToMany, Collection } from '@mikro-orm/core';
+import { Entity, Property, PrimaryKey, OneToMany, Collection, Enum } from '@mikro-orm/core';
 import { ObjectType, Field, ID } from '@nestjs/graphql';
 import { v7 } from 'uuid';
 
@@ -24,8 +24,8 @@ export class User {
   @Property()
   password: string; // Stored hashed password, NOT exposed via GraphQL
 
-  @Field(() => UserRole) // ✅ Use enum in GraphQL schema
-  @Property()
+  @Field(() => UserRole)
+  @Enum(() => UserRole)
   role: UserRole;
 
   @Field({ nullable: true })

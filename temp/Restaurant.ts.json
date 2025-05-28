@@ -206,6 +206,6 @@
     "collection": "restaurant"
   },
   "origin": "./src/domain/user/entities/restaurant.entity.ts",
-  "hash": "669ef5eb77e521116b3e1eea4024215b",
+  "hash": "2577ecf306926ac06951e6c145cf318f",
   "version": "6.4.15"
 }

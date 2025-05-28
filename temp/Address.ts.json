@@ -143,6 +143,6 @@
     "collection": "address"
   },
   "origin": "./src/domain/user/entities/address.enitity.ts",
-  "hash": "aa3bfd3776c42a5ffa883aa71bf47f61",
+  "hash": "134ca2770fa142f32c15d4d62f97c5dd",
   "version": "6.4.15"
 }

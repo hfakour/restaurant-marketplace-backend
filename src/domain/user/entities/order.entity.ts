@@ -8,6 +8,7 @@ import {
   OneToMany,
   OneToOne,
   Collection,
+  Enum,
 } from '@mikro-orm/core';
 import { ObjectType, Field, ID, Float } from '@nestjs/graphql';
 import { v7 as uuidv7 } from 'uuid';
@@ -61,7 +62,7 @@ export class OrderEntity {
   total: number; // 💰 subtotal + tax + deliveryFee
 
   @Field(() => OrderStatus)
-  @Property({ type: 'string' })
+  @Enum(() => OrderStatus) // ✅ Correctly defines an enum field in MikroORM
   status: OrderStatus = OrderStatus.PENDING; // 📦 Current status
 
   @Field({ nullable: true })

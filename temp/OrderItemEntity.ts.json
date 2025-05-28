@@ -125,6 +125,6 @@
     "collection": "order_item_entity"
   },
   "origin": "./src/domain/user/entities/order-item.entity.ts",
-  "hash": "8973fcaad26228baab7d4f266dd6cf25",
+  "hash": "291218a5c9e8a01911f67dc9e1ab261d",
   "version": "6.4.15"
 }

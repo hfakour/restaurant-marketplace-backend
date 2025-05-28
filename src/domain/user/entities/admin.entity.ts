@@ -1,5 +1,5 @@
 // src/domain/entity/admin.entity.ts
-import { Entity, Property, PrimaryKey, ManyToOne } from '@mikro-orm/core';
+import { Entity, Property, PrimaryKey, ManyToOne, Enum } from '@mikro-orm/core';
 import { ObjectType, Field, ID } from '@nestjs/graphql';
 import { v7 as uuidv7 } from 'uuid';
 import { Restaurant } from './restaurant.entity';
@@ -21,7 +21,7 @@ export class Admin {
   password: string;
 
   @Field(() => AdminRole)
-  @Property({ type: 'string' })
+  @Enum(() => AdminRole)
   role: AdminRole;
 
   @Field({ nullable: true })

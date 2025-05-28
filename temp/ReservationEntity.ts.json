@@ -121,6 +121,6 @@
     "collection": "reservation_entity"
   },
   "origin": "./src/domain/user/entities/reservation.entity.ts",
-  "hash": "83a2620f772a543082db898ebea5cc9c",
+  "hash": "8f9e5004e1394b97833385cf6e7bdb37",
   "version": "6.4.15"
 }

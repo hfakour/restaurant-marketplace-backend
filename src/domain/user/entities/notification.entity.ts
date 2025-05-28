@@ -1,6 +1,6 @@
 // src/domain/entity/notification.entity.ts
 
-import { Entity, Property, PrimaryKey, ManyToOne } from '@mikro-orm/core';
+import { Entity, Property, PrimaryKey, ManyToOne, Enum } from '@mikro-orm/core';
 import { ObjectType, Field, ID } from '@nestjs/graphql';
 import { v7 as uuidv7 } from 'uuid';
 
@@ -29,7 +29,7 @@ export class Notification {
   imageUrl?: string; // 🖼️ Optional image (e.g., promo banner)
 
   @Field(() => NotificationType)
-  @Property({ type: 'string' }) // ✅ Tell MikroORM it's a string, not enum class
+  @Enum(() => NotificationType) // ✅ Tells MikroORM it's an enum and to persist it as such
   type: NotificationType;
 
   @Field({ nullable: true })

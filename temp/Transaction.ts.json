@@ -85,6 +85,6 @@
     "collection": "transaction"
   },
   "origin": "./src/domain/user/entities/transaction.entity.ts",
-  "hash": "7a13a37768bdabf4a82bf2f9c6dc7934",
+  "hash": "175a46416f0e4f6c6d865163bd8ab917",
   "version": "6.4.15"
 }

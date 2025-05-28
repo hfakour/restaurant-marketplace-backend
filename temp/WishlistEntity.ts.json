@@ -87,6 +87,6 @@
     "collection": "wishlist_entity"
   },
   "origin": "./src/domain/user/entities/wishlist.entity.ts",
-  "hash": "30b1a2de2764af69130c1f91879a9528",
+  "hash": "46f0d9f742cee715137e1cd32c8ff84d",
   "version": "6.4.15"
 }

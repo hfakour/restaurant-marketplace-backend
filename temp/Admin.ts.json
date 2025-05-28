@@ -85,6 +85,6 @@
     "collection": "admin"
   },
   "origin": "./src/domain/user/entities/admin.entity.ts",
-  "hash": "119ad2dafc9751a3cbf622c1e4b85dee",
+  "hash": "477e4402409d0b3a4756f10c92ecc353",
   "version": "6.4.15"
 }
