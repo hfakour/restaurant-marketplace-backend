@@ -32,8 +32,8 @@
       "role": {
         "name": "role",
         "kind": "scalar",
-        "getter": false,
-        "setter": false,
+        "enum": true,
+        "items": ["customer", "delivery", "admin"],
         "type": "UserRole",
         "array": false,
         "runtimeType": "UserRole"
@@ -162,6 +162,6 @@
     "collection": "user"
   },
   "origin": "./src/domain/user/entities/user.entity.ts",
-  "hash": "2d50678ba555c4dead7a6e3c0b8485ad",
+  "hash": "5f30934b9d43ff04c40098086eb17221",
   "version": "6.4.15"
 }

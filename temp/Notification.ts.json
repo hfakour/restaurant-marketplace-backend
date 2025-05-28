@@ -42,9 +42,9 @@
       "type": {
         "name": "type",
         "kind": "scalar",
-        "type": "string",
-        "getter": false,
-        "setter": false,
+        "enum": true,
+        "items": ["ORDER", "RESERVATION", "PROMOTION", "GENERAL"],
+        "type": "NotificationType",
         "array": false,
         "runtimeType": "NotificationType"
       },
@@ -141,6 +141,6 @@
     "collection": "notification"
   },
   "origin": "./src/domain/user/entities/notification.entity.ts",
-  "hash": "798460a887867bdb8b671cdca19cbec6",
+  "hash": "ec003b11c922480d7c6fccd489b5f753",
   "version": "6.4.15"
 }

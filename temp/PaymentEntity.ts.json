@@ -32,8 +32,8 @@
       "method": {
         "name": "method",
         "kind": "scalar",
-        "getter": false,
-        "setter": false,
+        "enum": true,
+        "items": ["CARD", "CASH", "WALLET"],
         "type": "PaymentMethod",
         "array": false,
         "runtimeType": "PaymentMethod"
@@ -41,10 +41,10 @@
       "status": {
         "name": "status",
         "kind": "scalar",
-        "default": "PENDING",
-        "getter": false,
-        "setter": false,
+        "enum": true,
+        "items": ["PENDING", "SUCCESS", "FAILED", "REFUNDED"],
         "type": "string",
+        "default": "PENDING",
         "runtimeType": "PaymentStatus",
         "array": false
       },
@@ -131,6 +131,6 @@
     "collection": "payment_entity"
   },
   "origin": "./src/domain/user/entities/payment.entity.ts",
-  "hash": "e64a8b86397f477050aecb74450e53e6",
+  "hash": "af5145391d11129bde6c34bc46cc53c2",
   "version": "6.4.15"
 }

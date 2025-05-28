@@ -84,12 +84,12 @@
       "status": {
         "name": "status",
         "kind": "scalar",
+        "enum": true,
+        "items": ["PENDING", "ACCEPTED", "PREPARING", "ON_THE_WAY", "DELIVERED", "CANCELLED"],
         "type": "string",
-        "getter": false,
-        "setter": false,
         "default": "PENDING",
-        "array": false,
-        "runtimeType": "OrderStatus"
+        "runtimeType": "OrderStatus",
+        "array": false
       },
       "notes": {
         "name": "notes",
@@ -181,6 +181,6 @@
     "collection": "order_entity"
   },
   "origin": "./src/domain/user/entities/order.entity.ts",
-  "hash": "5967664d954c5a446cfdc91a9364f619",
+  "hash": "58357d99cd497c2212fb13e8c2bae970",
   "version": "6.4.15"
 }
