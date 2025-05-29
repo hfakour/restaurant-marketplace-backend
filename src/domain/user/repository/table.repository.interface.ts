@@ -1,10 +1,9 @@
 import { Table } from '../entities/table.entity';
-
-export abstract class ITableRepository {
-  abstract findById(id: string): Promise<Table | null>;
-  abstract findByRestaurant(restaurantId: string): Promise<Table[]>;
-  abstract create(table: Table): Promise<Table>;
-  abstract update(table: Table): Promise<Table>;
-  abstract delete(id: string): Promise<void>;
-  abstract existsById(id: string): Promise<boolean>;
+export interface ITableRepository {
+  findById(id: string): Promise<Table | null>;
+  findByRestaurant(restaurantId: string): Promise<Table[]>;
+  create(table: Table): Promise<void>;
+  update(table: Table): Promise<void>;
+  delete(id: string): Promise<void>;
+  existsById(id: string): Promise<boolean>;
 }

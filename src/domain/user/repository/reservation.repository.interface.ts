@@ -1,10 +1,9 @@
 import { ReservationEntity } from '../entities/reservation.entity';
-
-export abstract class IReservationRepository {
-  abstract findById(id: string): Promise<ReservationEntity | null>;
-  abstract findByUser(userId: string): Promise<ReservationEntity[]>;
-  abstract findByRestaurant(restaurantId: string): Promise<ReservationEntity[]>;
-  abstract create(reservation: ReservationEntity): Promise<ReservationEntity>;
-  abstract update(reservation: ReservationEntity): Promise<ReservationEntity>;
-  abstract delete(id: string): Promise<void>;
+export interface IReservationRepository {
+  findById(id: string): Promise<ReservationEntity | null>;
+  findByUser(userId: string): Promise<ReservationEntity[]>;
+  findByRestaurant(restaurantId: string): Promise<ReservationEntity[]>;
+  create(reservation: ReservationEntity): Promise<void>;
+  update(reservation: ReservationEntity): Promise<void>;
+  delete(id: string): Promise<void>;
 }

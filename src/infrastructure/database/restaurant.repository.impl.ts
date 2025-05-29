@@ -26,15 +26,14 @@ export class RestaurantRepository implements IRestaurantRepository {
     return await this.restaurantRepo.findAll();
   }
 
-  async create(restaurant: Restaurant): Promise<Restaurant> {
+  async create(restaurant: Restaurant): Promise<void> {
     this.em.persist(restaurant);
     await this.em.flush();
-    return restaurant;
   }
 
-  async update(restaurant: Restaurant): Promise<Restaurant> {
+  async update(restaurant: Restaurant): Promise<void> {
+    this.em.persist(restaurant);
     await this.em.flush();
-    return restaurant;
   }
 
   async delete(id: string): Promise<void> {

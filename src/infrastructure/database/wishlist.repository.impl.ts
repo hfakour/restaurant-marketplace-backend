@@ -1,8 +1,12 @@
+// src/infrastructure/database/repositories/wishlist.repository.impl.ts
+
 import { Injectable } from '@nestjs/common';
 import { InjectRepository, InjectEntityManager } from '@mikro-orm/nestjs';
 import { EntityRepository, EntityManager } from '@mikro-orm/core';
+
 import { WishlistEntity } from 'src/domain/user/entities/wishlist.entity';
 import { IWishlistRepository } from 'src/domain/user/repository/wishlist.repository.interface';
+import { User } from 'src/domain/user/entities/user.entity';
 
 @Injectable()
 export class WishlistRepository implements IWishlistRepository {
@@ -14,26 +18,30 @@ export class WishlistRepository implements IWishlistRepository {
     private readonly em: EntityManager,
   ) {}
 
-  async findById(id: string): Promise<WishlistEntity | null> {
+  // 🔍 Find wishlist item by ID
+  async findById(id: WishlistEntity['id']): Promise<WishlistEntity | null> {
     return await this.wishlistRepo.findOne({ id });
   }
 
-  async findByUserId(userId: string): Promise<WishlistEntity[]> {
-    return await this.wishlistRepo.find({ user: userId });
+  // 🔍 Get all wishlist items for a specific user
+  async findByUserId(userId: User['id']): Promise<WishlistEntity[]> {
+    return await this.wishlistRepo.find({ user: { id: userId } });
   }
 
-  async create(wishlist: WishlistEntity): Promise<WishlistEntity> {
+  // ➕ Add wishlist entry
+  async create(wishlist: WishlistEntity): Promise<void> {
     this.em.persist(wishlist);
     await this.em.flush();
-    return wishlist;
   }
 
-  async update(wishlist: WishlistEntity): Promise<WishlistEntity> {
+  // 🔄 Update wishlist entry
+  async update(wishlist: WishlistEntity): Promise<void> {
+    this.em.persist(wishlist);
     await this.em.flush();
-    return wishlist;
   }
 
-  async delete(id: string): Promise<void> {
+  // ❌ Delete wishlist entry by ID
+  async delete(id: WishlistEntity['id']): Promise<void> {
     const wishlist = await this.findById(id);
     if (wishlist) {
       this.em.remove(wishlist);
@@ -41,7 +49,8 @@ export class WishlistRepository implements IWishlistRepository {
     }
   }
 
-  async existsById(id: string): Promise<boolean> {
+  // ✅ Check if wishlist item exists by ID
+  async existsById(id: WishlistEntity['id']): Promise<boolean> {
     const count = await this.wishlistRepo.count({ id });
     return count > 0;
   }

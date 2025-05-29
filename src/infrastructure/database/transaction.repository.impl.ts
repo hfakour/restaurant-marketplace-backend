@@ -1,8 +1,12 @@
+// src/infrastructure/database/repositories/transaction.repository.impl.ts
+
 import { Injectable } from '@nestjs/common';
 import { InjectRepository, InjectEntityManager } from '@mikro-orm/nestjs';
 import { EntityRepository, EntityManager } from '@mikro-orm/core';
+
 import { Transaction } from 'src/domain/user/entities/transaction.entity';
 import { ITransactionRepository } from 'src/domain/user/repository/transaction.repository.interface';
+import { User } from 'src/domain/user/entities/user.entity';
 
 @Injectable()
 export class TransactionRepository implements ITransactionRepository {
@@ -14,26 +18,30 @@ export class TransactionRepository implements ITransactionRepository {
     private readonly em: EntityManager,
   ) {}
 
-  async findById(id: string): Promise<Transaction | null> {
+  // 🔍 Find transaction by ID
+  async findById(id: Transaction['id']): Promise<Transaction | null> {
     return await this.transactionRepo.findOne({ id });
   }
 
-  async findByUserId(userId: string): Promise<Transaction[]> {
-    return await this.transactionRepo.find({ user: userId });
+  // 🔍 Get all transactions made by a specific user
+  async findByUserId(userId: User['id']): Promise<Transaction[]> {
+    return await this.transactionRepo.find({ user: { id: userId } });
   }
 
-  async create(transaction: Transaction): Promise<Transaction> {
+  // ➕ Create a new transaction
+  async create(transaction: Transaction): Promise<void> {
     this.em.persist(transaction);
     await this.em.flush();
-    return transaction;
   }
 
-  async update(transaction: Transaction): Promise<Transaction> {
+  // 🔄 Update existing transaction
+  async update(transaction: Transaction): Promise<void> {
+    this.em.persist(transaction);
     await this.em.flush();
-    return transaction;
   }
 
-  async delete(id: string): Promise<void> {
+  // ❌ Delete a transaction by ID
+  async delete(id: Transaction['id']): Promise<void> {
     const transaction = await this.findById(id);
     if (transaction) {
       this.em.remove(transaction);
@@ -41,7 +49,8 @@ export class TransactionRepository implements ITransactionRepository {
     }
   }
 
-  async existsById(id: string): Promise<boolean> {
+  // ✅ Check if transaction exists by ID
+  async existsById(id: Transaction['id']): Promise<boolean> {
     const count = await this.transactionRepo.count({ id });
     return count > 0;
   }

@@ -1,6 +1,9 @@
+// src/infrastructure/database/repositories/user.repository.impl.ts
+
 import { Injectable } from '@nestjs/common';
 import { InjectRepository, InjectEntityManager } from '@mikro-orm/nestjs';
 import { EntityManager, EntityRepository } from '@mikro-orm/core';
+
 import { User } from 'src/domain/user/entities/user.entity';
 import { IUserRepository } from 'src/domain/user/repository/user.repository.interface';
 import { UserRole } from 'src/domain/user/entities/user-role.enum';
@@ -8,37 +11,42 @@ import { UserRole } from 'src/domain/user/entities/user-role.enum';
 @Injectable()
 export class UserRepository implements IUserRepository {
   constructor(
-    @InjectRepository(User, 'default') // ✅ Add connection name
+    @InjectRepository(User, 'default')
     private readonly userRepo: EntityRepository<User>,
 
-    @InjectEntityManager('default') // ✅ Add connection name
+    @InjectEntityManager('default')
     private readonly em: EntityManager,
   ) {}
 
-  async findById(id: string): Promise<User | null> {
+  // 🔍 Find user by ID
+  async findById(id: User['id']): Promise<User | null> {
     return await this.userRepo.findOne({ id });
   }
 
-  async findByEmail(email: string): Promise<User | null> {
+  // 🔍 Find user by email
+  async findByEmail(email: User['email']): Promise<User | null> {
     return await this.userRepo.findOne({ email });
   }
 
+  // 🔍 Get all users
   async findAll(): Promise<User[]> {
     return await this.userRepo.findAll();
   }
 
-  async create(user: User): Promise<User> {
+  // ➕ Add new user
+  async create(user: User): Promise<void> {
     this.em.persist(user);
     await this.em.flush();
-    return user;
   }
 
-  async update(user: User): Promise<User> {
+  // 🔄 Update existing user
+  async update(user: User): Promise<void> {
+    this.em.persist(user);
     await this.em.flush();
-    return user;
   }
 
-  async delete(id: string): Promise<void> {
+  // ❌ Delete user by ID
+  async delete(id: User['id']): Promise<void> {
     const user = await this.findById(id);
     if (user) {
       this.em.remove(user);
@@ -46,11 +54,13 @@ export class UserRepository implements IUserRepository {
     }
   }
 
+  // 🔍 Find users by their role (Admin, Customer, etc.)
   async findByRole(role: UserRole): Promise<User[]> {
     return await this.userRepo.find({ role });
   }
 
-  async existsByEmail(email: string): Promise<boolean> {
+  // ✅ Check if user with given email exists
+  async existsByEmail(email: User['email']): Promise<boolean> {
     const count = await this.userRepo.count({ email });
     return count > 0;
   }
