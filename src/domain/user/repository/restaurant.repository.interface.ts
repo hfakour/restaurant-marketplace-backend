@@ -1,12 +1,13 @@
 import { Restaurant } from '../entities/restaurant.entity';
+import { RestaurantCategoryId, RestaurantId, RestaurantName } from 'src/domain/types/entity-ids';
 
 export interface IRestaurantRepository {
-  findById(id: string): Promise<Restaurant | null>;
-  findByName(name: string): Promise<Restaurant | null>;
+  findById(id: RestaurantId): Promise<Restaurant | null>;
+  findByName(name: RestaurantName): Promise<Restaurant | null>;
   findAll(): Promise<Restaurant[]>;
   create(restaurant: Restaurant): Promise<void>;
   update(restaurant: Restaurant): Promise<void>;
-  delete(id: string): Promise<void>;
-  findByCategory(categoryId: string): Promise<Restaurant[]>;
-  existsByName(name: string): Promise<boolean>;
+  delete(id: RestaurantId): Promise<void>;
+  findByCategory(categoryId: RestaurantCategoryId): Promise<Restaurant[]>;
+  existsByName(name: RestaurantName): Promise<boolean>;
 }

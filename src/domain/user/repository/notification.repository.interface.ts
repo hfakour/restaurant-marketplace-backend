@@ -1,9 +1,10 @@
+import { NotificationId, NotificationUserId } from 'src/domain/types/entity-ids';
 import { Notification } from '../entities/notification.entity';
 
 export interface INotificationRepository {
-  findById(id: string): Promise<Notification | null>;
-  findByUser(userId: string): Promise<Notification[]>;
-  markAsRead(id: string): Promise<void>;
+  findById(id: NotificationId): Promise<Notification | null>;
+  findByUser(userId: NotificationUserId): Promise<Notification[]>;
+  markAsRead(id: NotificationId): Promise<void>;
   save(notification: Notification): Promise<void>;
-  delete(id: string): Promise<void>;
+  delete(id: NotificationId): Promise<void>;
 }

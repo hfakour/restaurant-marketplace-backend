@@ -1,10 +1,11 @@
+import { FoodCategoryId, FoodId, FoodMenuId } from 'src/domain/types/entity-ids';
 import { Food } from '../entities/food.entity';
 
 export interface IFoodRepository {
-  findById(id: string): Promise<Food | null>;
-  findByMenuId(menuId: string): Promise<Food[]>;
-  findByCategoryId(categoryId: string): Promise<Food[]>;
+  findById(id: FoodId): Promise<Food | null>;
+  findByMenuId(menuId: FoodMenuId): Promise<Food[]>;
+  findByCategoryId(categoryId: FoodCategoryId): Promise<Food[]>;
   save(food: Food): Promise<void>;
   update(food: Food): Promise<void>;
-  delete(id: string): Promise<void>;
+  delete(id: FoodId): Promise<void>;
 }

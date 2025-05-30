@@ -1,9 +1,15 @@
+import {
+  ReservationId,
+  ReservationRestaurantId,
+  ReservationUserId,
+} from 'src/domain/types/entity-ids';
 import { ReservationEntity } from '../entities/reservation.entity';
+
 export interface IReservationRepository {
-  findById(id: string): Promise<ReservationEntity | null>;
-  findByUser(userId: string): Promise<ReservationEntity[]>;
-  findByRestaurant(restaurantId: string): Promise<ReservationEntity[]>;
+  findById(id: ReservationId): Promise<ReservationEntity | null>;
+  findByUser(userId: ReservationUserId): Promise<ReservationEntity[]>;
+  findByRestaurant(restaurantId: ReservationRestaurantId): Promise<ReservationEntity[]>;
   create(reservation: ReservationEntity): Promise<void>;
   update(reservation: ReservationEntity): Promise<void>;
-  delete(id: string): Promise<void>;
+  delete(id: ReservationId): Promise<void>;
 }

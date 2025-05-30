@@ -1,9 +1,10 @@
+import { MenuId, MenuRestaurantId } from 'src/domain/types/entity-ids';
 import { MenuEntity } from '../entities/menu.entity';
 
 export interface IMenuRepository {
-  findById(id: string): Promise<MenuEntity | null>;
-  findByRestaurantId(restaurantId: string): Promise<MenuEntity[]>;
+  findById(id: MenuId): Promise<MenuEntity | null>;
+  findByRestaurantId(restaurantId: MenuRestaurantId): Promise<MenuEntity[]>;
   save(menu: MenuEntity): Promise<void>;
   update(menu: MenuEntity): Promise<void>;
-  delete(id: string): Promise<void>;
+  delete(id: MenuId): Promise<void>;
 }

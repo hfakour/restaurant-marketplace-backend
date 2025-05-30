@@ -1,9 +1,10 @@
+import { AdminEmail, AdminId } from 'src/domain/types/entity-ids';
 import { Admin } from '../entities/admin.entity';
 
 export abstract class IAdminRepository {
-  abstract findById(id: string): Promise<Admin | null>;
-  abstract findByEmail(email: string): Promise<Admin | null>;
+  abstract findById(id: AdminId): Promise<Admin | null>;
+  abstract findByEmail(email: AdminEmail): Promise<Admin | null>;
   abstract create(admin: Admin): Promise<void>;
   abstract update(admin: Admin): Promise<void>;
-  abstract delete(id: string): Promise<void>;
+  abstract delete(id: AdminId): Promise<void>;
 }

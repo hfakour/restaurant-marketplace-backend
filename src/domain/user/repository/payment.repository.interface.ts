@@ -1,9 +1,10 @@
+import { PaymentId, PaymentOrderId } from 'src/domain/types/entity-ids';
 import { PaymentEntity } from '../entities/payment.entity';
 
 export interface IPaymentRepository {
-  findById(id: string): Promise<PaymentEntity | null>;
-  findByOrderId(orderId: string): Promise<PaymentEntity | null>;
+  findById(id: PaymentId): Promise<PaymentEntity | null>;
+  findByOrderId(orderId: PaymentOrderId): Promise<PaymentEntity | null>;
   save(payment: PaymentEntity): Promise<void>;
   update(payment: PaymentEntity): Promise<void>;
-  delete(id: string): Promise<void>;
+  delete(id: PaymentId): Promise<void>;
 }
