@@ -129,7 +129,7 @@
     "indexes": [],
     "uniques": [],
     "className": "Notification",
-    "path": "./src/domain/user/entities/notification.entity.ts",
+    "path": "./src/domain/entities/notification.entity.ts",
     "name": "Notification",
     "abstract": false,
     "internal": true,
@@ -140,7 +140,7 @@
     "simplePK": true,
     "collection": "notification"
   },
-  "origin": "./src/domain/user/entities/notification.entity.ts",
+  "origin": "./src/domain/entities/notification.entity.ts",
   "hash": "ec003b11c922480d7c6fccd489b5f753",
   "version": "6.4.15"
 }

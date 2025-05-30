@@ -1,5 +1,5 @@
 // src/domain/entity/transaction.entity.ts
-import { Entity, Property, PrimaryKey, ManyToOne } from '@mikro-orm/core';
+import { Property, PrimaryKey, ManyToOne, Enum } from '@mikro-orm/core';
 import { ObjectType, Field, ID, Float } from '@nestjs/graphql';
 import { v7 as uuidv7 } from 'uuid';
 import { User } from './user.entity';
@@ -8,7 +8,6 @@ import { TransactionStatus } from './transaction-status.enum';
 import { TransactionMethod } from './transaction-method.enum';
 
 @ObjectType()
-@Entity()
 export class Transaction {
   @Field(() => ID)
   @PrimaryKey()
@@ -26,12 +25,13 @@ export class Transaction {
   @Property()
   amount: number;
 
-  @Field()
-  @Property()
+  @Field(() => TransactionStatus)
+  @Enum(() => TransactionStatus)
+  @Property({ default: TransactionStatus.PENDING })
   status: TransactionStatus;
 
-  @Field()
-  @Property()
+  @Field(() => TransactionMethod)
+  @Enum(() => TransactionMethod) // ✅ Only the enum type here
   method: TransactionMethod;
 
   @Field()

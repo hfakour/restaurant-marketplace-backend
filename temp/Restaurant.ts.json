@@ -194,7 +194,7 @@
     "indexes": [],
     "uniques": [],
     "className": "Restaurant",
-    "path": "./src/domain/user/entities/restaurant.entity.ts",
+    "path": "./src/domain/entities/restaurant.entity.ts",
     "name": "Restaurant",
     "abstract": false,
     "internal": true,
@@ -205,7 +205,7 @@
     "simplePK": true,
     "collection": "restaurant"
   },
-  "origin": "./src/domain/user/entities/restaurant.entity.ts",
+  "origin": "./src/domain/entities/restaurant.entity.ts",
   "hash": "2577ecf306926ac06951e6c145cf318f",
   "version": "6.4.15"
 }

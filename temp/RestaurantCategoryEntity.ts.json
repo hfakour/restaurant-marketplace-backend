@@ -76,7 +76,7 @@
     "indexes": [],
     "uniques": [],
     "className": "RestaurantCategoryEntity",
-    "path": "./src/domain/user/entities/restaurant-category.entity.ts",
+    "path": "./src/domain/entities/restaurant-category.entity.ts",
     "name": "RestaurantCategoryEntity",
     "abstract": false,
     "internal": true,
@@ -87,7 +87,7 @@
     "simplePK": true,
     "collection": "restaurant_category_entity"
   },
-  "origin": "./src/domain/user/entities/restaurant-category.entity.ts",
+  "origin": "./src/domain/entities/restaurant-category.entity.ts",
   "hash": "415853709b5893a26f4ed4114706f8c6",
   "version": "6.4.15"
 }

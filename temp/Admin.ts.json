@@ -73,7 +73,7 @@
     "indexes": [],
     "uniques": [],
     "className": "Admin",
-    "path": "./src/domain/user/entities/admin.entity.ts",
+    "path": "./src/domain/entities/admin.entity.ts",
     "name": "Admin",
     "abstract": false,
     "internal": true,
@@ -84,7 +84,7 @@
     "simplePK": true,
     "collection": "admin"
   },
-  "origin": "./src/domain/user/entities/admin.entity.ts",
+  "origin": "./src/domain/entities/admin.entity.ts",
   "hash": "f06237bc50ede0828e6e26f55b4ae168",
   "version": "6.4.15"
 }

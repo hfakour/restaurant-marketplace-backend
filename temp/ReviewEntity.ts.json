@@ -104,7 +104,7 @@
     "indexes": [],
     "uniques": [],
     "className": "ReviewEntity",
-    "path": "./src/domain/user/entities/review.entity.ts",
+    "path": "./src/domain/entities/review.entity.ts",
     "name": "ReviewEntity",
     "abstract": false,
     "internal": true,
@@ -115,7 +115,7 @@
     "simplePK": true,
     "collection": "review_entity"
   },
-  "origin": "./src/domain/user/entities/review.entity.ts",
+  "origin": "./src/domain/entities/review.entity.ts",
   "hash": "4d5c191884ecea90fe87d354a5e2ba1c",
   "version": "6.4.15"
 }

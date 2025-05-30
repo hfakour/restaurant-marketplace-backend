@@ -63,7 +63,7 @@
     "indexes": [],
     "uniques": [],
     "className": "Table",
-    "path": "./src/domain/user/entities/table.entity.ts",
+    "path": "./src/domain/entities/table.entity.ts",
     "name": "Table",
     "abstract": false,
     "internal": true,
@@ -74,7 +74,7 @@
     "simplePK": true,
     "collection": "table"
   },
-  "origin": "./src/domain/user/entities/table.entity.ts",
+  "origin": "./src/domain/entities/table.entity.ts",
   "hash": "2dfe0faa973366c9a89d816333444010",
   "version": "6.4.15"
 }

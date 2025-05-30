@@ -3,7 +3,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 import configuration from './config/configuration';
 import mikroOrmConfig from '../mikro-orm.config';
-import { UserModule } from './modules/user/user.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver } from '@nestjs/apollo';
 import { join } from 'path';
@@ -26,8 +25,6 @@ import { join } from 'path';
       playground: true, // ✅ Enables GraphQL Playground at /graphql
       installSubscriptionHandlers: true, // For future WebSocket support
     }),
-
-    UserModule,
   ],
 })
 export class AppModule {}

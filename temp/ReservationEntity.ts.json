@@ -109,7 +109,7 @@
     "indexes": [],
     "uniques": [],
     "className": "ReservationEntity",
-    "path": "./src/domain/user/entities/reservation.entity.ts",
+    "path": "./src/domain/entities/reservation.entity.ts",
     "name": "ReservationEntity",
     "abstract": false,
     "internal": true,
@@ -120,7 +120,7 @@
     "simplePK": true,
     "collection": "reservation_entity"
   },
-  "origin": "./src/domain/user/entities/reservation.entity.ts",
+  "origin": "./src/domain/entities/reservation.entity.ts",
   "hash": "8f9e5004e1394b97833385cf6e7bdb37",
   "version": "6.4.15"
 }

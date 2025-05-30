@@ -157,7 +157,7 @@
     "indexes": [],
     "uniques": [],
     "className": "CouponEntity",
-    "path": "./src/domain/user/entities/coupon.entity.ts",
+    "path": "./src/domain/entities/coupon.entity.ts",
     "name": "CouponEntity",
     "abstract": false,
     "internal": true,
@@ -168,7 +168,7 @@
     "simplePK": true,
     "collection": "coupon_entity"
   },
-  "origin": "./src/domain/user/entities/coupon.entity.ts",
+  "origin": "./src/domain/entities/coupon.entity.ts",
   "hash": "13624adcbea0c137ee59394fb97279d1",
   "version": "6.4.15"
 }

@@ -169,7 +169,7 @@
     "indexes": [],
     "uniques": [],
     "className": "OrderEntity",
-    "path": "./src/domain/user/entities/order.entity.ts",
+    "path": "./src/domain/entities/order.entity.ts",
     "name": "OrderEntity",
     "abstract": false,
     "internal": true,
@@ -180,7 +180,7 @@
     "simplePK": true,
     "collection": "order_entity"
   },
-  "origin": "./src/domain/user/entities/order.entity.ts",
+  "origin": "./src/domain/entities/order.entity.ts",
   "hash": "58357d99cd497c2212fb13e8c2bae970",
   "version": "6.4.15"
 }

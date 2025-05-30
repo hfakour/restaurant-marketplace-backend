@@ -116,7 +116,7 @@
     "indexes": [],
     "uniques": [],
     "className": "MenuEntity",
-    "path": "./src/domain/user/entities/menu.entity.ts",
+    "path": "./src/domain/entities/menu.entity.ts",
     "name": "MenuEntity",
     "abstract": false,
     "internal": true,
@@ -127,7 +127,7 @@
     "simplePK": true,
     "collection": "menu_entity"
   },
-  "origin": "./src/domain/user/entities/menu.entity.ts",
+  "origin": "./src/domain/entities/menu.entity.ts",
   "hash": "514a03307a817b7dc96159e1708983e2",
   "version": "6.4.15"
 }

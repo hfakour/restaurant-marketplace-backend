@@ -150,7 +150,7 @@
     "indexes": [],
     "uniques": [],
     "className": "User",
-    "path": "./src/domain/user/entities/user.entity.ts",
+    "path": "./src/domain/entities/user.entity.ts",
     "name": "User",
     "abstract": false,
     "internal": true,
@@ -161,7 +161,7 @@
     "simplePK": true,
     "collection": "user"
   },
-  "origin": "./src/domain/user/entities/user.entity.ts",
+  "origin": "./src/domain/entities/user.entity.ts",
   "hash": "5f30934b9d43ff04c40098086eb17221",
   "version": "6.4.15"
 }

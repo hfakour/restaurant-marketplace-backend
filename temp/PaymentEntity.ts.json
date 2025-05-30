@@ -119,7 +119,7 @@
     "indexes": [],
     "uniques": [],
     "className": "PaymentEntity",
-    "path": "./src/domain/user/entities/payment.entity.ts",
+    "path": "./src/domain/entities/payment.entity.ts",
     "name": "PaymentEntity",
     "abstract": false,
     "internal": true,
@@ -130,7 +130,7 @@
     "simplePK": true,
     "collection": "payment_entity"
   },
-  "origin": "./src/domain/user/entities/payment.entity.ts",
-  "hash": "af5145391d11129bde6c34bc46cc53c2",
+  "origin": "./src/domain/entities/payment.entity.ts",
+  "hash": "8dd5c23635a1da80da271f3fb4e8c11e",
   "version": "6.4.15"
 }

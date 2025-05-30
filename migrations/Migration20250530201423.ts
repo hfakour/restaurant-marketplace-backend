@@ -1,6 +1,6 @@
 import { Migration } from '@mikro-orm/migrations';
 
-export class Migration20250528173451 extends Migration {
+export class Migration20250530201423 extends Migration {
   override async up(): Promise<void> {
     this.addSql(
       `create table "menu_category_entity" ("id" varchar(255) not null, "name" varchar(255) not null, "description" varchar(255) null, "icon_url" varchar(255) null, "display_order" int null, "is_active" boolean not null default true, constraint "menu_category_entity_pkey" primary key ("id"));`,
@@ -86,10 +86,6 @@ export class Migration20250528173451 extends Migration {
 
     this.addSql(
       `create table "order_entity" ("id" varchar(255) not null, "user_id" varchar(255) not null, "restaurant_id" varchar(255) not null, "delivery_address_id" varchar(255) not null, "subtotal" int not null, "tax" int not null, "delivery_fee" int not null, "total" int not null, "status" text check ("status" in ('PENDING', 'ACCEPTED', 'PREPARING', 'ON_THE_WAY', 'DELIVERED', 'CANCELLED')) not null default 'PENDING', "notes" varchar(255) null, "payment_method" varchar(255) not null, "is_paid" boolean not null default false, "coupon_id" varchar(255) null, "created_at" date not null, "updated_at" date not null, constraint "order_entity_pkey" primary key ("id"));`,
-    );
-
-    this.addSql(
-      `create table "transaction" ("id" varchar(255) not null, "user_id" varchar(255) not null, "order_id" varchar(255) null, "amount" int not null, "status" varchar(255) not null, "method" varchar(255) not null, "created_at" date not null, constraint "transaction_pkey" primary key ("id"));`,
     );
 
     this.addSql(
@@ -231,13 +227,6 @@ export class Migration20250528173451 extends Migration {
     );
 
     this.addSql(
-      `alter table "transaction" add constraint "transaction_user_id_foreign" foreign key ("user_id") references "user" ("id") on update cascade;`,
-    );
-    this.addSql(
-      `alter table "transaction" add constraint "transaction_order_id_foreign" foreign key ("order_id") references "order_entity" ("id") on update cascade on delete set null;`,
-    );
-
-    this.addSql(
       `alter table "payment_entity" add constraint "payment_entity_order_id_foreign" foreign key ("order_id") references "order_entity" ("id") on update cascade;`,
     );
 
@@ -370,8 +359,6 @@ export class Migration20250528173451 extends Migration {
 
     this.addSql(`alter table "order_entity" drop constraint "order_entity_user_id_foreign";`);
 
-    this.addSql(`alter table "transaction" drop constraint "transaction_user_id_foreign";`);
-
     this.addSql(`alter table "wishlist_entity" drop constraint "wishlist_entity_user_id_foreign";`);
 
     this.addSql(
@@ -381,8 +368,6 @@ export class Migration20250528173451 extends Migration {
     this.addSql(
       `alter table "order_entity" drop constraint "order_entity_delivery_address_id_foreign";`,
     );
-
-    this.addSql(`alter table "transaction" drop constraint "transaction_order_id_foreign";`);
 
     this.addSql(`alter table "payment_entity" drop constraint "payment_entity_order_id_foreign";`);
 
@@ -435,8 +420,6 @@ export class Migration20250528173451 extends Migration {
     this.addSql(`drop table if exists "address" cascade;`);
 
     this.addSql(`drop table if exists "order_entity" cascade;`);
-
-    this.addSql(`drop table if exists "transaction" cascade;`);
 
     this.addSql(`drop table if exists "payment_entity" cascade;`);
 

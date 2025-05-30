@@ -78,7 +78,7 @@
     "indexes": [],
     "uniques": [],
     "className": "MenuCategoryEntity",
-    "path": "./src/domain/user/entities/menu-category.entity.ts",
+    "path": "./src/domain/entities/menu-category.entity.ts",
     "name": "MenuCategoryEntity",
     "abstract": false,
     "internal": true,
@@ -89,7 +89,7 @@
     "simplePK": true,
     "collection": "menu_category_entity"
   },
-  "origin": "./src/domain/user/entities/menu-category.entity.ts",
+  "origin": "./src/domain/entities/menu-category.entity.ts",
   "hash": "a64b55cabf7813cdf8c4fb3a5e0a3673",
   "version": "6.4.15"
 }

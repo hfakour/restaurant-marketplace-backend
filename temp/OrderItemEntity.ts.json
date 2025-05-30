@@ -63,7 +63,7 @@
         "getter": false,
         "setter": false,
         "array": false,
-        "runtimeType": "Record<string, any>",
+        "runtimeType": "Record<string, unknown>",
         "optional": true
       },
       "selectedCustomizations": {
@@ -74,7 +74,7 @@
         "getter": false,
         "setter": false,
         "array": false,
-        "runtimeType": "Record<string, any>",
+        "runtimeType": "Record<string, unknown>",
         "optional": true
       },
       "selectedSize": {
@@ -85,7 +85,7 @@
         "getter": false,
         "setter": false,
         "array": false,
-        "runtimeType": "Record<string, any>",
+        "runtimeType": "Record<string, unknown>",
         "optional": true
       },
       "createdAt": {
@@ -113,7 +113,7 @@
     "indexes": [],
     "uniques": [],
     "className": "OrderItemEntity",
-    "path": "./src/domain/user/entities/order-item.entity.ts",
+    "path": "./src/domain/entities/order-item.entity.ts",
     "name": "OrderItemEntity",
     "abstract": false,
     "internal": true,
@@ -124,7 +124,7 @@
     "simplePK": true,
     "collection": "order_item_entity"
   },
-  "origin": "./src/domain/user/entities/order-item.entity.ts",
-  "hash": "291218a5c9e8a01911f67dc9e1ab261d",
+  "origin": "./src/domain/entities/order-item.entity.ts",
+  "hash": "5209000ce0ff235435a3e67f18251160",
   "version": "6.4.15"
 }

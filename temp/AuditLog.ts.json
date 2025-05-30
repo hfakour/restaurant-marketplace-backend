@@ -44,7 +44,7 @@
         "getter": false,
         "setter": false,
         "array": false,
-        "runtimeType": "Record<string, any>"
+        "runtimeType": "Record<string, unknown>"
       },
       "createdAt": {
         "name": "createdAt",
@@ -62,7 +62,7 @@
     "indexes": [],
     "uniques": [],
     "className": "AuditLog",
-    "path": "./src/domain/user/entities/audit-log.entity.ts",
+    "path": "./src/domain/entities/audit-log.entity.ts",
     "name": "AuditLog",
     "abstract": false,
     "internal": true,
@@ -73,7 +73,7 @@
     "simplePK": true,
     "collection": "audit_log"
   },
-  "origin": "./src/domain/user/entities/audit-log.entity.ts",
-  "hash": "dcd98a45f84aa87a01381a653f1ed146",
+  "origin": "./src/domain/entities/audit-log.entity.ts",
+  "hash": "9ae9887a097692fc247643e64a8165cf",
   "version": "6.4.15"
 }

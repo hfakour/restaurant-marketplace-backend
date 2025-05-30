@@ -42,20 +42,20 @@
       "status": {
         "name": "status",
         "kind": "scalar",
-        "getter": false,
-        "setter": false,
-        "type": "\"PENDING\" | \"COMPLETED\" | \"FAILED\"",
+        "enum": true,
+        "items": ["FAILED", "COMPLETED", "PENDING"],
+        "type": "TransactionStatus",
         "array": false,
-        "runtimeType": "\"PENDING\" | \"COMPLETED\" | \"FAILED\""
+        "runtimeType": "TransactionStatus"
       },
       "method": {
         "name": "method",
         "kind": "scalar",
-        "getter": false,
-        "setter": false,
-        "type": "\"CARD\" | \"CASH\" | \"WALLET\"",
+        "enum": true,
+        "items": ["CARD", "CASH", "WALLET"],
+        "type": "TransactionMethod",
         "array": false,
-        "runtimeType": "\"CARD\" | \"CASH\" | \"WALLET\""
+        "runtimeType": "TransactionMethod"
       },
       "createdAt": {
         "name": "createdAt",
@@ -73,18 +73,16 @@
     "indexes": [],
     "uniques": [],
     "className": "Transaction",
-    "path": "./src/domain/user/entities/transaction.entity.ts",
-    "name": "Transaction",
-    "abstract": false,
+    "path": "./src/domain/entities/transaction.entity.ts",
+    "abstract": true,
     "internal": true,
     "constructorParams": [],
     "toJsonParams": [],
     "useCache": true,
     "compositePK": false,
-    "simplePK": true,
-    "collection": "transaction"
+    "simplePK": true
   },
-  "origin": "./src/domain/user/entities/transaction.entity.ts",
-  "hash": "175a46416f0e4f6c6d865163bd8ab917",
+  "origin": "./src/domain/entities/transaction.entity.ts",
+  "hash": "4c354996ce087a95a7816cbe66decd20",
   "version": "6.4.15"
 }

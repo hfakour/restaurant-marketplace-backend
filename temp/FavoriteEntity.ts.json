@@ -68,7 +68,7 @@
     "indexes": [],
     "uniques": [],
     "className": "FavoriteEntity",
-    "path": "./src/domain/user/entities/favorite.entity.ts",
+    "path": "./src/domain/entities/favorite.entity.ts",
     "name": "FavoriteEntity",
     "abstract": false,
     "internal": true,
@@ -79,7 +79,7 @@
     "simplePK": true,
     "collection": "favorite_entity"
   },
-  "origin": "./src/domain/user/entities/favorite.entity.ts",
+  "origin": "./src/domain/entities/favorite.entity.ts",
   "hash": "29dfd277fa4377843aef1d7f4a4e41a9",
   "version": "6.4.15"
 }

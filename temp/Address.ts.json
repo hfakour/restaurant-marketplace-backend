@@ -121,7 +121,7 @@
     "indexes": [],
     "uniques": [],
     "className": "Address",
-    "path": "./src/domain/user/entities/address.enitity.ts",
+    "path": "./src/domain/entities/address.enitity.ts",
     "name": "Address",
     "abstract": false,
     "internal": true,
@@ -142,7 +142,7 @@
     "simplePK": true,
     "collection": "address"
   },
-  "origin": "./src/domain/user/entities/address.enitity.ts",
+  "origin": "./src/domain/entities/address.enitity.ts",
   "hash": "134ca2770fa142f32c15d4d62f97c5dd",
   "version": "6.4.15"
 }

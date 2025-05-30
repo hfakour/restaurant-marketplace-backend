@@ -126,7 +126,7 @@
     "indexes": [],
     "uniques": [],
     "className": "SupportMessageEntity",
-    "path": "./src/domain/user/entities/support-message.entity.ts",
+    "path": "./src/domain/entities/support-message.entity.ts",
     "name": "SupportMessageEntity",
     "abstract": false,
     "internal": true,
@@ -137,7 +137,7 @@
     "simplePK": true,
     "collection": "support_message_entity"
   },
-  "origin": "./src/domain/user/entities/support-message.entity.ts",
+  "origin": "./src/domain/entities/support-message.entity.ts",
   "hash": "dd546ed8d9189f61fd3ef1aeb0637f26",
   "version": "6.4.15"
 }
