@@ -28,6 +28,18 @@ export class Admin {
   @ManyToOne(() => Restaurant, { nullable: true })
   restaurant?: Restaurant;
 
+  @Field({ nullable: true })
+  @Property({ nullable: true })
+  fullName?: string;
+
+  @Field({ nullable: true })
+  @Property({ nullable: true })
+  phone?: string;
+
+  @Field({ nullable: true })
+  @Property({ nullable: true })
+  imageUrl?: string;
+
   @Field()
   @Property({ type: 'date', onCreate: () => new Date() })
   createdAt: Date = new Date();
@@ -35,4 +47,11 @@ export class Admin {
   @Field()
   @Property({ type: 'date', onUpdate: () => new Date() })
   updatedAt: Date = new Date();
+
+  // ✅ Constructor to match your service code
+  constructor(email: string, password: string, role: AdminRole) {
+    this.email = email;
+    this.password = password;
+    this.role = role;
+  }
 }
