@@ -4,6 +4,8 @@ import { ObjectType, Field, ID, Float } from '@nestjs/graphql';
 import { v7 as uuidv7 } from 'uuid';
 import { User } from './user.entity';
 import { OrderEntity } from './order.entity';
+import { TransactionStatus } from './transaction-status.enum';
+import { TransactionMethod } from './transaction-method.enum';
 
 @ObjectType()
 @Entity()
@@ -26,11 +28,11 @@ export class Transaction {
 
   @Field()
   @Property()
-  status: 'PENDING' | 'COMPLETED' | 'FAILED';
+  status: TransactionStatus;
 
   @Field()
   @Property()
-  method: 'CARD' | 'CASH' | 'WALLET';
+  method: TransactionMethod;
 
   @Field()
   @Property({ type: 'date', onCreate: () => new Date() })
