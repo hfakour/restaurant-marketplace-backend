@@ -4,9 +4,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository, InjectEntityManager } from '@mikro-orm/nestjs';
 import { EntityRepository, EntityManager } from '@mikro-orm/core';
 
-import { CouponEntity } from 'src/domain/user/entities/coupon.entity';
-import { ICouponRepository } from 'src/domain/user/repository/coupon.repository.interface';
-import { Restaurant } from 'src/domain/user/entities/restaurant.entity';
+import { CouponEntity } from 'src/domain/entities/coupon.entity';
+import { ICouponRepository } from 'src/domain/repository/coupon.repository.interface';
+import { Restaurant } from 'src/domain/entities/restaurant.entity';
 
 @Injectable()
 export class CouponRepository implements ICouponRepository {

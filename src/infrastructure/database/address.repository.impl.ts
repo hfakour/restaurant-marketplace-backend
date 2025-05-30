@@ -4,10 +4,10 @@ import { EntityManager, EntityRepository } from '@mikro-orm/core';
 import { InjectEntityManager, InjectRepository } from '@mikro-orm/nestjs';
 import { Injectable } from '@nestjs/common';
 
-import { Address } from 'src/domain/user/entities/address.enitity';
-import { IAddressRepository } from 'src/domain/user/repository/address.repository.interface';
-import { User } from 'src/domain/user/entities/user.entity';
-import { Restaurant } from 'src/domain/user/entities/restaurant.entity';
+import { Address } from 'src/domain/entities/address.enitity';
+import { IAddressRepository } from 'src/domain/repository/address.repository.interface';
+import { User } from 'src/domain/entities/user.entity';
+import { Restaurant } from 'src/domain/entities/restaurant.entity';
 
 @Injectable()
 export class AddressRepository implements IAddressRepository {

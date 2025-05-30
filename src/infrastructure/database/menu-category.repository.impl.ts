@@ -4,8 +4,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectEntityManager, InjectRepository } from '@mikro-orm/nestjs';
 import { EntityManager, EntityRepository } from '@mikro-orm/core';
 
-import { MenuCategoryEntity } from 'src/domain/user/entities/menu-category.entity';
-import { IMenuCategoryRepository } from 'src/domain/user/repository/menu-category.repository.interface';
+import { MenuCategoryEntity } from 'src/domain/entities/menu-category.entity';
+import { IMenuCategoryRepository } from 'src/domain/repository/menu-category.repository.interface';
 
 @Injectable()
 export class MenuCategoryRepository implements IMenuCategoryRepository {

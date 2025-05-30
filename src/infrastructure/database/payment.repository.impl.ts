@@ -4,9 +4,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository, InjectEntityManager } from '@mikro-orm/nestjs';
 import { EntityRepository, EntityManager } from '@mikro-orm/core';
 
-import { PaymentEntity } from 'src/domain/user/entities/payment.entity';
-import { IPaymentRepository } from 'src/domain/user/repository/payment.repository.interface';
-import { OrderEntity } from 'src/domain/user/entities/order.entity';
+import { PaymentEntity } from 'src/domain/entities/payment.entity';
+import { IPaymentRepository } from 'src/domain/repository/payment.repository.interface';
+import { OrderEntity } from 'src/domain/entities/order.entity';
 
 @Injectable()
 export class PaymentRepository implements IPaymentRepository {

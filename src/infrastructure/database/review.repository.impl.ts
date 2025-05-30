@@ -4,10 +4,10 @@ import { EntityManager, EntityRepository } from '@mikro-orm/core';
 import { InjectEntityManager, InjectRepository } from '@mikro-orm/nestjs';
 import { Injectable } from '@nestjs/common';
 
-import { ReviewEntity } from 'src/domain/user/entities/review.entity';
-import { IReviewRepository } from 'src/domain/user/repository/review.repository.interface';
-import { Restaurant } from 'src/domain/user/entities/restaurant.entity';
-import { Food } from 'src/domain/user/entities/food.entity';
+import { ReviewEntity } from 'src/domain/entities/review.entity';
+import { IReviewRepository } from 'src/domain/repository/review.repository.interface';
+import { Restaurant } from 'src/domain/entities/restaurant.entity';
+import { Food } from 'src/domain/entities/food.entity';
 
 @Injectable()
 export class ReviewRepository implements IReviewRepository {

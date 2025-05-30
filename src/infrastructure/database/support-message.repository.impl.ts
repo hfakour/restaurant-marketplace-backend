@@ -4,9 +4,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectEntityManager, InjectRepository } from '@mikro-orm/nestjs';
 import { EntityManager, EntityRepository } from '@mikro-orm/core';
 
-import { ISupportMessageRepository } from 'src/domain/user/repository/support-message.repository.interface';
-import { SupportMessageEntity } from 'src/domain/user/entities/support-message.entity';
-import { User } from 'src/domain/user/entities/user.entity';
+import { ISupportMessageRepository } from 'src/domain/repository/support-message.repository.interface';
+import { SupportMessageEntity } from 'src/domain/entities/support-message.entity';
+import { User } from 'src/domain/entities/user.entity';
 
 @Injectable()
 export class SupportMessageRepository implements ISupportMessageRepository {

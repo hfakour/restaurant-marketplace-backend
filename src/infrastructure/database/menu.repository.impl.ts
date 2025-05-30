@@ -4,9 +4,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectEntityManager, InjectRepository } from '@mikro-orm/nestjs';
 import { EntityManager, EntityRepository } from '@mikro-orm/core';
 
-import { MenuEntity } from 'src/domain/user/entities/menu.entity';
-import { IMenuRepository } from 'src/domain/user/repository/menu.repository.interface';
-import { Restaurant } from 'src/domain/user/entities/restaurant.entity';
+import { MenuEntity } from 'src/domain/entities/menu.entity';
+import { IMenuRepository } from 'src/domain/repository/menu.repository.interface';
+import { Restaurant } from 'src/domain/entities/restaurant.entity';
 
 @Injectable()
 export class MenuRepository implements IMenuRepository {

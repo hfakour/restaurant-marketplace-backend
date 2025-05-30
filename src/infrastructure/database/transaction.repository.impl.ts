@@ -4,9 +4,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository, InjectEntityManager } from '@mikro-orm/nestjs';
 import { EntityRepository, EntityManager } from '@mikro-orm/core';
 
-import { Transaction } from 'src/domain/user/entities/transaction.entity';
-import { ITransactionRepository } from 'src/domain/user/repository/transaction.repository.interface';
-import { User } from 'src/domain/user/entities/user.entity';
+import { Transaction } from 'src/domain/entities/transaction.entity';
+import { ITransactionRepository } from 'src/domain/repository/transaction.repository.interface';
+import { User } from 'src/domain/entities/user.entity';
 
 @Injectable()
 export class TransactionRepository implements ITransactionRepository {

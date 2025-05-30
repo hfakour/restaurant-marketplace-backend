@@ -4,9 +4,9 @@ import { EntityManager, EntityRepository } from '@mikro-orm/core';
 import { InjectEntityManager, InjectRepository } from '@mikro-orm/nestjs';
 import { Injectable } from '@nestjs/common';
 
-import { AuthSession } from 'src/domain/user/entities/auth.entity';
-import { IAuthSessionRepository } from 'src/domain/user/repository/auth-session.repository.interface';
-import { User } from 'src/domain/user/entities/user.entity'; // 👈 Import User for typing
+import { AuthSession } from 'src/domain/entities/auth.entity';
+import { IAuthSessionRepository } from 'src/domain/repository/auth-session.repository.interface';
+import { User } from 'src/domain/entities/user.entity'; // 👈 Import User for typing
 
 @Injectable()
 export class AuthSessionRepository implements IAuthSessionRepository {

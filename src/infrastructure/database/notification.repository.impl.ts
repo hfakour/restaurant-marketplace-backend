@@ -4,9 +4,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectEntityManager, InjectRepository } from '@mikro-orm/nestjs';
 import { EntityRepository, EntityManager } from '@mikro-orm/core';
 
-import { Notification } from 'src/domain/user/entities/notification.entity';
-import { INotificationRepository } from 'src/domain/user/repository/notification.repository.interface';
-import { User } from 'src/domain/user/entities/user.entity';
+import { Notification } from 'src/domain/entities/notification.entity';
+import { INotificationRepository } from 'src/domain/repository/notification.repository.interface';
+import { User } from 'src/domain/entities/user.entity';
 
 @Injectable()
 export class NotificationRepository implements INotificationRepository {

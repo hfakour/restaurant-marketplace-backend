@@ -4,9 +4,9 @@ import { Injectable } from '@nestjs/common';
 import { EntityManager, EntityRepository } from '@mikro-orm/core';
 import { InjectEntityManager, InjectRepository } from '@mikro-orm/nestjs';
 
-import { Table } from 'src/domain/user/entities/table.entity';
-import { ITableRepository } from 'src/domain/user/repository/table.repository.interface';
-import { Restaurant } from 'src/domain/user/entities/restaurant.entity';
+import { Table } from 'src/domain/entities/table.entity';
+import { ITableRepository } from 'src/domain/repository/table.repository.interface';
+import { Restaurant } from 'src/domain/entities/restaurant.entity';
 
 @Injectable()
 export class TableRepository implements ITableRepository {

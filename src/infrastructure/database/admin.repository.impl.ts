@@ -4,8 +4,8 @@ import { EntityManager, EntityRepository } from '@mikro-orm/core';
 import { InjectEntityManager, InjectRepository } from '@mikro-orm/nestjs';
 import { Injectable } from '@nestjs/common';
 
-import { Admin } from 'src/domain/user/entities/admin.entity';
-import { IAdminRepository } from 'src/domain/user/repository/admin.repository.interface';
+import { Admin } from 'src/domain/entities/admin.entity';
+import { IAdminRepository } from 'src/domain/repository/admin.repository.interface';
 
 @Injectable()
 export class AdminRepository implements IAdminRepository {

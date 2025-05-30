@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectEntityManager, InjectRepository } from '@mikro-orm/nestjs';
 import { EntityManager, EntityRepository } from '@mikro-orm/core';
-import { IRestaurantRepository } from 'src/domain/user/repository/restaurant.repository.interface';
-import { Restaurant } from 'src/domain/user/entities/restaurant.entity';
+import { IRestaurantRepository } from 'src/domain/repository/restaurant.repository.interface';
+import { Restaurant } from 'src/domain/entities/restaurant.entity';
 
 @Injectable()
 export class RestaurantRepository implements IRestaurantRepository {

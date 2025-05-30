@@ -4,10 +4,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository, InjectEntityManager } from '@mikro-orm/nestjs';
 import { EntityRepository, EntityManager } from '@mikro-orm/core';
 
-import { Food } from 'src/domain/user/entities/food.entity';
-import { IFoodRepository } from 'src/domain/user/repository/food.repository.interface';
-import { MenuEntity } from 'src/domain/user/entities/menu.entity';
-import { MenuCategoryEntity } from 'src/domain/user/entities/menu-category.entity';
+import { Food } from 'src/domain/entities/food.entity';
+import { IFoodRepository } from 'src/domain/repository/food.repository.interface';
+import { MenuEntity } from 'src/domain/entities/menu.entity';
+import { MenuCategoryEntity } from 'src/domain/entities/menu-category.entity';
 
 @Injectable()
 export class FoodRepository implements IFoodRepository {

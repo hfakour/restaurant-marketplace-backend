@@ -4,9 +4,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository, InjectEntityManager } from '@mikro-orm/nestjs';
 import { EntityManager, EntityRepository } from '@mikro-orm/core';
 
-import { User } from 'src/domain/user/entities/user.entity';
-import { IUserRepository } from 'src/domain/user/repository/user.repository.interface';
-import { UserRole } from 'src/domain/user/entities/user-role.enum';
+import { User } from 'src/domain/entities/user.entity';
+import { IUserRepository } from 'src/domain/repository/user.repository.interface';
+import { UserRole } from 'src/domain/entities/user-role.enum';
 
 @Injectable()
 export class UserRepository implements IUserRepository {

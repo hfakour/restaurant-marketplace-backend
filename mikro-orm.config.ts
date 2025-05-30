@@ -2,7 +2,7 @@ import { MikroOrmModuleSyncOptions } from '@mikro-orm/nestjs';
 import { ConfigService } from '@nestjs/config';
 import { PostgreSqlDriver } from '@mikro-orm/postgresql';
 import { TsMorphMetadataProvider } from '@mikro-orm/reflection';
-import { User } from 'src/domain/user/entities/user.entity';
+import { User } from 'src/domain/entities/user.entity';
 
 const isProduction = process.env.NODE_ENV === 'production';
 

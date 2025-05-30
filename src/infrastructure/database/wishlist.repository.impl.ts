@@ -4,9 +4,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository, InjectEntityManager } from '@mikro-orm/nestjs';
 import { EntityRepository, EntityManager } from '@mikro-orm/core';
 
-import { WishlistEntity } from 'src/domain/user/entities/wishlist.entity';
-import { IWishlistRepository } from 'src/domain/user/repository/wishlist.repository.interface';
-import { User } from 'src/domain/user/entities/user.entity';
+import { WishlistEntity } from 'src/domain/entities/wishlist.entity';
+import { IWishlistRepository } from 'src/domain/repository/wishlist.repository.interface';
+import { User } from 'src/domain/entities/user.entity';
 
 @Injectable()
 export class WishlistRepository implements IWishlistRepository {

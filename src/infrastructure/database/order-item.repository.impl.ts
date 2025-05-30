@@ -4,9 +4,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectEntityManager, InjectRepository } from '@mikro-orm/nestjs';
 import { EntityRepository, EntityManager } from '@mikro-orm/core';
 
-import { OrderItemEntity } from 'src/domain/user/entities/order-item.entity';
-import { IOrderItemRepository } from 'src/domain/user/repository/order-item.repository.interface';
-import { OrderEntity } from 'src/domain/user/entities/order.entity';
+import { OrderItemEntity } from 'src/domain/entities/order-item.entity';
+import { IOrderItemRepository } from 'src/domain/repository/order-item.repository.interface';
+import { OrderEntity } from 'src/domain/entities/order.entity';
 
 @Injectable()
 export class OrderItemRepository implements IOrderItemRepository {

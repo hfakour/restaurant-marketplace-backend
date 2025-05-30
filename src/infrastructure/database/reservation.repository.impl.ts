@@ -4,10 +4,10 @@ import { EntityManager, EntityRepository } from '@mikro-orm/core';
 import { InjectEntityManager, InjectRepository } from '@mikro-orm/nestjs';
 import { Injectable } from '@nestjs/common';
 
-import { ReservationEntity } from 'src/domain/user/entities/reservation.entity';
-import { IReservationRepository } from 'src/domain/user/repository/reservation.repository.interface';
-import { User } from 'src/domain/user/entities/user.entity';
-import { Restaurant } from 'src/domain/user/entities/restaurant.entity'; // 👈 import for typings
+import { ReservationEntity } from 'src/domain/entities/reservation.entity';
+import { IReservationRepository } from 'src/domain/repository/reservation.repository.interface';
+import { User } from 'src/domain/entities/user.entity';
+import { Restaurant } from 'src/domain/entities/restaurant.entity'; // 👈 import for typings
 
 @Injectable()
 export class ReservationRepository implements IReservationRepository {
