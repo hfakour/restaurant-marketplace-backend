@@ -27,14 +27,19 @@ export class Transaction {
 
   @Field(() => TransactionStatus)
   @Enum(() => TransactionStatus)
-  @Property({ default: TransactionStatus.PENDING })
   status: TransactionStatus;
 
   @Field(() => TransactionMethod)
-  @Enum(() => TransactionMethod) // ✅ Only the enum type here
+  @Enum(() => TransactionMethod)
   method: TransactionMethod;
 
   @Field()
   @Property({ type: 'date', onCreate: () => new Date() })
   createdAt: Date = new Date();
+
+  constructor(amount: number, status: TransactionStatus, method: TransactionMethod) {
+    this.amount = amount;
+    this.status = status;
+    this.method = method;
+  }
 }
