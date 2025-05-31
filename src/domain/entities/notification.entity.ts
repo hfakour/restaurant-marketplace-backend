@@ -11,7 +11,7 @@ import { SupportMessageEntity } from './support-message.entity';
 
 @ObjectType()
 @Entity()
-export class Notification {
+export class NotificationEntity {
   @Field(() => ID)
   @PrimaryKey()
   id: string = uuidv7(); // 🔑 Globally unique and time-ordered ID

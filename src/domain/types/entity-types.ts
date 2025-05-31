@@ -7,11 +7,12 @@ import { FavoriteEntity } from '../entities/favorite.entity';
 import { Food } from '../entities/food.entity';
 import { MenuCategoryEntity } from '../entities/menu-category.entity';
 import { MenuEntity } from '../entities/menu.entity';
-import { Notification } from '../entities/notification.entity';
+import { NotificationEntity } from '../entities/notification.entity';
 import { OrderItemEntity } from '../entities/order-item.entity';
 import { OrderEntity } from '../entities/order.entity';
 import { PaymentEntity } from '../entities/payment.entity';
 import { ReservationEntity } from '../entities/reservation.entity';
+import { RestaurantCategoryEntity } from '../entities/restaurant-category.entity';
 import { Restaurant } from '../entities/restaurant.entity';
 import { ReviewEntity } from '../entities/review.entity';
 import { SupportMessageEntity } from '../entities/support-message.entity';
@@ -29,7 +30,7 @@ export type FavoriteId = FavoriteEntity['id'];
 export type FoodId = Food['id'];
 export type MenuId = MenuEntity['id'];
 export type MenuCategoryId = MenuCategoryEntity['id'];
-export type NotificationId = Notification['id'];
+export type NotificationId = NotificationEntity['id'];
 export type OrderItemId = OrderItemEntity['id'];
 export type OrderId = OrderEntity['id'];
 export type PaymentId = PaymentEntity['id'];
@@ -41,6 +42,7 @@ export type TableId = Table['id'];
 export type TransactionId = Transaction['id'];
 export type UserId = User['id'];
 export type WishlistId = WishlistEntity['id'];
+export type RestaurantCategoryId = RestaurantCategoryEntity['id'];
 
 // === Foreign Keys (NonNullable Relationships) ===
 
@@ -48,7 +50,7 @@ export type WishlistId = WishlistEntity['id'];
 export type AddressUserId = NonNullable<Address['user']>['id'];
 export type WishlistUserId = NonNullable<WishlistEntity['user']>['id'];
 export type ReservationUserId = NonNullable<ReservationEntity['user']>['id'];
-export type NotificationUserId = NonNullable<Notification['targetUser']>['id'];
+export type NotificationUserId = NonNullable<NotificationEntity['targetUser']>['id'];
 export type SupportMessageUserId = NonNullable<SupportMessageEntity['receiverUser']>['id'];
 export type TransactionUserId = NonNullable<Transaction['user']>['id'];
 export type OrderUserId = NonNullable<OrderEntity['user']>['id'];
@@ -75,7 +77,6 @@ export type TableRestaurantId = NonNullable<Table['restaurant']>['id'];
 export type OrderItemOrderId = NonNullable<OrderItemEntity['order']>['id'];
 export type PaymentOrderId = NonNullable<PaymentEntity['order']>['id'];
 export type CouponRestaurantId = NonNullable<CouponEntity['restaurant']>['id'];
-export type RestaurantCategoryId = NonNullable<Restaurant['restaurantCategory']>['id'];
 
 // === Unique Business Values ===
 export type RestaurantName = Restaurant['name'];

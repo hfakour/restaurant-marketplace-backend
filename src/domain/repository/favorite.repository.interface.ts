@@ -6,10 +6,10 @@ import {
 } from 'src/domain/types/entity-types';
 import { FavoriteEntity } from '../entities/favorite.entity';
 
-export abstract class IFavoriteRepository {
-  abstract findByUserId(userId: FavoriteUserId): Promise<FavoriteEntity[]>;
-  abstract findByRestaurantId(restaurantId: FavoriteRestaurantId): Promise<FavoriteEntity[]>;
-  abstract findByFoodId(foodId: FavoriteFoodId): Promise<FavoriteEntity[]>;
-  abstract create(favorite: FavoriteEntity): Promise<void>;
-  abstract delete(id: FavoriteId): Promise<void>;
+export interface IFavoriteRepository {
+  findByUserId(userId: FavoriteUserId): Promise<FavoriteEntity[]>;
+  findByRestaurantId(restaurantId: FavoriteRestaurantId): Promise<FavoriteEntity[]>;
+  findByFoodId(foodId: FavoriteFoodId): Promise<FavoriteEntity[]>;
+  create(favorite: FavoriteEntity): Promise<void>;
+  delete(id: FavoriteId): Promise<void>;
 }
