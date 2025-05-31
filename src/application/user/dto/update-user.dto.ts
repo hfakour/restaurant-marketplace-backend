@@ -9,21 +9,8 @@ export class UpdateUserDto extends PartialType(CreateUserDto) {
   @Field({ nullable: true })
   @IsOptional()
   @IsString()
-  fullName?: string; // Optional update
-
-  @Field({ nullable: true })
-  @IsOptional()
-  @IsString()
-  phone?: string; // Optional update
-
-  @Field({ nullable: true })
-  @IsOptional()
-  @IsString()
-  imageUrl?: string; // Optional update
-
-  @Field({ nullable: true })
-  @IsOptional()
-  @IsString()
   @MinLength(6)
-  password?: string; // Optional update — if provided, will be hashed
+  password?: string;
+
+  // other fields...
 }
