@@ -6,9 +6,12 @@ export interface IUserRepository {
   findById(id: UserId): Promise<User | null>;
   findByEmail(email: UserEmail): Promise<User | null>;
   findAll(): Promise<User[]>;
+  findByRole(role: UserRole): Promise<User[]>;
+  existsByEmail(email: UserEmail): Promise<boolean>;
   create(user: User): Promise<void>;
   update(user: User): Promise<void>;
   delete(id: UserId): Promise<void>;
-  findByRole(role: UserRole): Promise<User[]>;
-  existsByEmail(email: UserEmail): Promise<boolean>;
+
+  // 🔍 Add this method to support flexible filtering
+  filterBy(filter: { email?: string; role?: UserRole }): Promise<User[]>;
 }

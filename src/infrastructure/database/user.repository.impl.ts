@@ -64,4 +64,12 @@ export class UserRepository implements IUserRepository {
     const count = await this.userRepo.count({ email });
     return count > 0;
   }
+
+  // ✅ FIXED: Flexible filter method using the correct repository
+  async filterBy(filter: { email?: string; role?: UserRole }): Promise<User[]> {
+    return await this.userRepo.find({
+      ...(filter.email ? { email: filter.email } : {}),
+      ...(filter.role ? { role: filter.role } : {}),
+    });
+  }
 }

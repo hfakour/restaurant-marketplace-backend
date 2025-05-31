@@ -1,10 +1,11 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { ConflictException, Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { IUserRepository } from 'src/domain/repository/user.repository.interface';
 import { User } from 'src/domain/entities/user.entity';
 import { UserRole } from 'src/domain/entities/user-role.enum';
 import * as bcrypt from 'bcrypt';
+import { UserFilterInput } from './dto/user-filter.input';
 
 @Injectable()
 export class UserService {
@@ -16,9 +17,9 @@ export class UserService {
   // 👤 Create a new user account
   async create(dto: CreateUserDto): Promise<User> {
     const emailTaken = await this.userRepo.existsByEmail(dto.email);
-    if (emailTaken) throw new Error('Email is already in use');
+    if (emailTaken) throw new ConflictException('Email is already in use');
 
-    const hashedPassword = await bcrypt.hash(dto.password, 10);
+    const hashedPassword = await this.hashPassword(dto.password);
 
     const user = new User(dto.email, hashedPassword, dto.role); // Assumes dto.role is already typed as UserRole
 
@@ -54,7 +55,7 @@ export class UserService {
   // 🛠️ Update an existing user
   async update(id: User['id'], dto: UpdateUserDto): Promise<User> {
     const user = await this.userRepo.findById(id);
-    if (!user) throw new Error('User not found');
+    if (!user) throw new NotFoundException('User not found');
 
     // ✅ Conditionally patch properties
     if (dto.fullName !== undefined) user.fullName = dto.fullName;
@@ -73,8 +74,16 @@ export class UserService {
   // ❌ Delete a user by ID
   async delete(id: User['id']): Promise<void> {
     const user = await this.userRepo.findById(id);
-    if (!user) throw new Error('User not found');
+    if (!user) throw new NotFoundException('User not found');
 
     await this.userRepo.delete(id);
+  }
+
+  private async hashPassword(plain: string): Promise<string> {
+    return bcrypt.hash(plain, 10);
+  }
+
+  async filter(filter: UserFilterInput): Promise<User[]> {
+    return this.userRepo.filterBy(filter); // Add this method to your repo if needed
   }
 }
