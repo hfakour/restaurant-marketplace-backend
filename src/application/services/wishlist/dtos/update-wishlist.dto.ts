@@ -1,12 +1,14 @@
-// src/application/services/wishlist/dto/update-wishlist.dto.ts
-import { Field, InputType, ID } from '@nestjs/graphql';
+// src/application/services/wishlist/dtos/update-wishlist.dto.ts
+
+import { Field, ID, InputType } from '@nestjs/graphql';
 import { IsArray, IsOptional, IsString, IsUUID } from 'class-validator';
+import { WishlistId, FoodId, RestaurantId } from 'src/domain/types/entity-types';
 
 @InputType()
 export class UpdateWishlistDto {
   @Field(() => ID)
   @IsUUID('4')
-  id: string; // 🔑 Wishlist ID to update
+  id: WishlistId;
 
   @Field({ nullable: true })
   @IsOptional()
@@ -17,11 +19,11 @@ export class UpdateWishlistDto {
   @IsOptional()
   @IsArray()
   @IsUUID('4', { each: true })
-  foodIds?: string[];
+  foodIds?: FoodId[];
 
   @Field(() => [ID], { nullable: 'itemsAndList' })
   @IsOptional()
   @IsArray()
   @IsUUID('4', { each: true })
-  restaurantIds?: string[];
+  restaurantIds?: RestaurantId[];
 }

@@ -1,12 +1,14 @@
-// src/application/services/wishlist/dto/wishlist-output.dto.ts
-import { ObjectType, Field, ID } from '@nestjs/graphql';
-import { Restaurant } from 'src/domain/entities/restaurant.entity';
+// src/application/services/wishlist/dtos/wishlist-output.dto.ts
+
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 import { Food } from 'src/domain/entities/food.entity';
+import { Restaurant } from 'src/domain/entities/restaurant.entity';
+import { WishlistId } from 'src/domain/types/entity-types';
 
 @ObjectType()
 export class WishlistOutputDto {
   @Field(() => ID)
-  id: string;
+  id: WishlistId;
 
   @Field({ nullable: true })
   title?: string;

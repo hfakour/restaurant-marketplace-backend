@@ -1,6 +1,6 @@
 {
   "data": {
-    "_id": 0,
+    "_id": 18000,
     "properties": {
       "id": {
         "name": "id",
@@ -32,11 +32,98 @@
       "role": {
         "name": "role",
         "kind": "scalar",
+        "enum": true,
+        "items": ["customer", "delivery", "admin"],
+        "type": "UserRole",
+        "array": false,
+        "runtimeType": "UserRole"
+      },
+      "fullName": {
+        "name": "fullName",
+        "kind": "scalar",
+        "nullable": true,
         "getter": false,
         "setter": false,
-        "type": "\"customer\" | \"courier\" | \"admin\"",
+        "type": "string",
         "array": false,
-        "runtimeType": "\"customer\" | \"courier\" | \"admin\""
+        "runtimeType": "string",
+        "optional": true
+      },
+      "phone": {
+        "name": "phone",
+        "kind": "scalar",
+        "nullable": true,
+        "getter": false,
+        "setter": false,
+        "type": "string",
+        "array": false,
+        "runtimeType": "string",
+        "optional": true
+      },
+      "imageUrl": {
+        "name": "imageUrl",
+        "kind": "scalar",
+        "nullable": true,
+        "getter": false,
+        "setter": false,
+        "type": "string",
+        "array": false,
+        "runtimeType": "string",
+        "optional": true
+      },
+      "addresses": {
+        "name": "addresses",
+        "kind": "1:m",
+        "cascade": ["persist"],
+        "nullable": true,
+        "type": "Address",
+        "array": false,
+        "runtimeType": "Collection<Address, object>"
+      },
+      "reviews": {
+        "name": "reviews",
+        "kind": "1:m",
+        "cascade": ["persist"],
+        "nullable": true,
+        "type": "ReviewEntity",
+        "array": false,
+        "runtimeType": "Collection<ReviewEntity, object>"
+      },
+      "wishlists": {
+        "name": "wishlists",
+        "kind": "1:m",
+        "cascade": ["persist"],
+        "nullable": true,
+        "type": "WishlistEntity",
+        "array": false,
+        "runtimeType": "Collection<WishlistEntity, object>"
+      },
+      "favorites": {
+        "name": "favorites",
+        "kind": "1:m",
+        "cascade": ["persist"],
+        "nullable": true,
+        "type": "FavoriteEntity",
+        "array": false,
+        "runtimeType": "Collection<FavoriteEntity, object>"
+      },
+      "orders": {
+        "name": "orders",
+        "kind": "1:m",
+        "cascade": ["persist"],
+        "nullable": true,
+        "type": "OrderEntity",
+        "array": false,
+        "runtimeType": "Collection<OrderEntity, object>"
+      },
+      "reservations": {
+        "name": "reservations",
+        "kind": "1:m",
+        "cascade": ["persist"],
+        "nullable": true,
+        "type": "ReservationEntity",
+        "array": false,
+        "runtimeType": "Collection<ReservationEntity, object>"
       },
       "createdAt": {
         "name": "createdAt",
@@ -63,7 +150,7 @@
     "indexes": [],
     "uniques": [],
     "className": "User",
-    "path": "./dist/src/domain/user/entities/user.entity.js",
+    "path": "./dist/src/domain/entities/user.entity.js",
     "name": "User",
     "abstract": false,
     "internal": true,
@@ -74,7 +161,7 @@
     "simplePK": true,
     "collection": "user"
   },
-  "origin": "./dist/src/domain/user/entities/user.entity.js",
-  "hash": "77e36ca00828951ae19069262ee48a69",
-  "version": "6.4.15"
+  "origin": "./dist/src/domain/entities/user.entity.js",
+  "hash": "7e96b4346f4b9abe13b3a29d6f315e4a",
+  "version": "6.4.16"
 }

@@ -4,7 +4,8 @@ import { Inject, Injectable } from '@nestjs/common';
 import { Cache, CACHE_MANAGER } from '@nestjs/cache-manager';
 
 import { IUserCacheRepository } from 'src/domain/repository/user-cache.repository.interface';
-import { UserCache, UserId } from 'src/domain/types/entity-types';
+import { UserId } from 'src/domain/types/entity-types';
+import { UserCache } from 'src/domain/types/cache/cache-types';
 
 @Injectable()
 export class UserCacheRepository implements IUserCacheRepository {
