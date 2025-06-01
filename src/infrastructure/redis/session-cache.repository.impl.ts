@@ -1,7 +1,7 @@
 // src/infrastructure/redis/session-cache.repository.impl.ts
 
 import { Inject, Injectable } from '@nestjs/common';
-import { Cache } from 'cache-manager';
+import { Cache, CACHE_MANAGER } from '@nestjs/cache-manager';
 
 import { ISessionCacheRepository } from 'src/domain/repository/session-cache.repository.interface';
 import { SessionToken, UserId } from 'src/domain/types/entity-types';
@@ -9,7 +9,7 @@ import { SessionToken, UserId } from 'src/domain/types/entity-types';
 @Injectable()
 export class SessionCacheRepository implements ISessionCacheRepository {
   constructor(
-    @Inject()
+    @Inject(CACHE_MANAGER)
     private readonly cache: Cache,
   ) {}
 

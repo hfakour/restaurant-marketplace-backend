@@ -1,7 +1,7 @@
 // src/infrastructure/redis/user-cache.repository.impl.ts
 
 import { Inject, Injectable } from '@nestjs/common';
-import { Cache } from 'cache-manager';
+import { Cache, CACHE_MANAGER } from '@nestjs/cache-manager';
 
 import { IUserCacheRepository } from 'src/domain/repository/user-cache.repository.interface';
 import { UserCache, UserId } from 'src/domain/types/entity-types';
@@ -9,7 +9,7 @@ import { UserCache, UserId } from 'src/domain/types/entity-types';
 @Injectable()
 export class UserCacheRepository implements IUserCacheRepository {
   constructor(
-    @Inject()
+    @Inject(CACHE_MANAGER)
     private readonly cache: Cache,
   ) {}
 

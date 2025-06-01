@@ -1,7 +1,7 @@
 // src/infrastructure/redis/otp-code.repository.impl.ts
 
 import { Inject, Injectable } from '@nestjs/common';
-import { Cache } from 'cache-manager';
+import { Cache, CACHE_MANAGER } from '@nestjs/cache-manager';
 
 import { IOtpCodeRepository } from 'src/domain/repository/otp-code.repository.interface';
 import { OtpCode, UserId } from 'src/domain/types/entity-types';
@@ -9,7 +9,7 @@ import { OtpCode, UserId } from 'src/domain/types/entity-types';
 @Injectable()
 export class OtpCodeRepository implements IOtpCodeRepository {
   constructor(
-    @Inject()
+    @Inject(CACHE_MANAGER)
     private readonly cache: Cache,
   ) {}
 
