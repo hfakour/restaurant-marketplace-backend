@@ -38,6 +38,6 @@
     "collection": "customization_option"
   },
   "origin": "./src/domain/entities/food.entity.ts",
-  "hash": "7e7f7a3d50df2aa441c5683b08e8d735",
-  "version": "6.4.15"
+  "hash": "4811f4acf8b443a1f1c35e2a229bddda",
+  "version": "6.4.16"
 }

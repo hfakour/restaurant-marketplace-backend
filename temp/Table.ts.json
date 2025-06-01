@@ -75,6 +75,6 @@
     "collection": "table"
   },
   "origin": "./src/domain/entities/table.entity.ts",
-  "hash": "2dfe0faa973366c9a89d816333444010",
-  "version": "6.4.15"
+  "hash": "d0d3a4b96efb0567fdb44f3cad456088",
+  "version": "6.4.16"
 }

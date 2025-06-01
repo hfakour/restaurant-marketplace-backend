@@ -88,6 +88,6 @@
     "collection": "restaurant_category_entity"
   },
   "origin": "./src/domain/entities/restaurant-category.entity.ts",
-  "hash": "415853709b5893a26f4ed4114706f8c6",
-  "version": "6.4.15"
+  "hash": "2ceb2895edb4fdb132d1a88c9c24eb17",
+  "version": "6.4.16"
 }

@@ -131,6 +131,6 @@
     "collection": "payment_entity"
   },
   "origin": "./src/domain/entities/payment.entity.ts",
-  "hash": "8dd5c23635a1da80da271f3fb4e8c11e",
-  "version": "6.4.15"
+  "hash": "baa8a4e5747860b614320beeceb4c4e3",
+  "version": "6.4.16"
 }

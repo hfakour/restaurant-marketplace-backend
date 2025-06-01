@@ -986,6 +986,36 @@
           "length": 255,
           "mappedType": "string"
         },
+        "full_name": {
+          "name": "full_name",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "length": 255,
+          "mappedType": "string"
+        },
+        "phone": {
+          "name": "phone",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "length": 255,
+          "mappedType": "string"
+        },
+        "image_url": {
+          "name": "image_url",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "length": 255,
+          "mappedType": "string"
+        },
         "created_at": {
           "name": "created_at",
           "type": "date",
@@ -1906,11 +1936,11 @@
           "mappedType": "date"
         }
       },
-      "name": "notification",
+      "name": "notification_entity",
       "schema": "public",
       "indexes": [
         {
-          "keyName": "notification_pkey",
+          "keyName": "notification_entity_pkey",
           "columnNames": ["id"],
           "composite": false,
           "constraint": true,
@@ -1920,28 +1950,28 @@
       ],
       "checks": [],
       "foreignKeys": {
-        "notification_target_user_id_foreign": {
-          "constraintName": "notification_target_user_id_foreign",
+        "notification_entity_target_user_id_foreign": {
+          "constraintName": "notification_entity_target_user_id_foreign",
           "columnNames": ["target_user_id"],
-          "localTableName": "public.notification",
+          "localTableName": "public.notification_entity",
           "referencedColumnNames": ["id"],
           "referencedTableName": "public.user",
           "deleteRule": "set null",
           "updateRule": "cascade"
         },
-        "notification_target_restaurant_id_foreign": {
-          "constraintName": "notification_target_restaurant_id_foreign",
+        "notification_entity_target_restaurant_id_foreign": {
+          "constraintName": "notification_entity_target_restaurant_id_foreign",
           "columnNames": ["target_restaurant_id"],
-          "localTableName": "public.notification",
+          "localTableName": "public.notification_entity",
           "referencedColumnNames": ["id"],
           "referencedTableName": "public.restaurant",
           "deleteRule": "set null",
           "updateRule": "cascade"
         },
-        "notification_support_message_id_foreign": {
-          "constraintName": "notification_support_message_id_foreign",
+        "notification_entity_support_message_id_foreign": {
+          "constraintName": "notification_entity_support_message_id_foreign",
           "columnNames": ["support_message_id"],
-          "localTableName": "public.notification",
+          "localTableName": "public.notification_entity",
           "referencedColumnNames": ["id"],
           "referencedTableName": "public.support_message_entity",
           "deleteRule": "set null",

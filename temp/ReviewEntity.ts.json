@@ -116,6 +116,6 @@
     "collection": "review_entity"
   },
   "origin": "./src/domain/entities/review.entity.ts",
-  "hash": "4d5c191884ecea90fe87d354a5e2ba1c",
-  "version": "6.4.15"
+  "hash": "3671b9f4508e5957f99356be21c7cfa5",
+  "version": "6.4.16"
 }

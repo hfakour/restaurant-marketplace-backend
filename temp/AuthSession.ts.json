@@ -111,6 +111,6 @@
     "collection": "auth_session"
   },
   "origin": "./src/domain/entities/auth.entity.ts",
-  "hash": "71a26020b54364243c6657b727f84280",
-  "version": "6.4.15"
+  "hash": "0f0b2049b4edf360278747ea5878c197",
+  "version": "6.4.16"
 }

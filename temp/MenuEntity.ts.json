@@ -128,6 +128,6 @@
     "collection": "menu_entity"
   },
   "origin": "./src/domain/entities/menu.entity.ts",
-  "hash": "514a03307a817b7dc96159e1708983e2",
-  "version": "6.4.15"
+  "hash": "b3fadf90eb46c179ab725a55283b4f61",
+  "version": "6.4.16"
 }

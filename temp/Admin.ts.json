@@ -48,6 +48,39 @@
         "runtimeType": "Restaurant",
         "optional": true
       },
+      "fullName": {
+        "name": "fullName",
+        "kind": "scalar",
+        "nullable": true,
+        "getter": false,
+        "setter": false,
+        "type": "string",
+        "array": false,
+        "runtimeType": "string",
+        "optional": true
+      },
+      "phone": {
+        "name": "phone",
+        "kind": "scalar",
+        "nullable": true,
+        "getter": false,
+        "setter": false,
+        "type": "string",
+        "array": false,
+        "runtimeType": "string",
+        "optional": true
+      },
+      "imageUrl": {
+        "name": "imageUrl",
+        "kind": "scalar",
+        "nullable": true,
+        "getter": false,
+        "setter": false,
+        "type": "string",
+        "array": false,
+        "runtimeType": "string",
+        "optional": true
+      },
       "createdAt": {
         "name": "createdAt",
         "kind": "scalar",
@@ -77,7 +110,7 @@
     "name": "Admin",
     "abstract": false,
     "internal": true,
-    "constructorParams": [],
+    "constructorParams": ["email", "password", "role"],
     "toJsonParams": [],
     "useCache": true,
     "compositePK": false,
@@ -85,6 +118,6 @@
     "collection": "admin"
   },
   "origin": "./src/domain/entities/admin.entity.ts",
-  "hash": "f06237bc50ede0828e6e26f55b4ae168",
-  "version": "6.4.15"
+  "hash": "a0f19f242701eac80818e88b9f8b84f5",
+  "version": "6.4.16"
 }

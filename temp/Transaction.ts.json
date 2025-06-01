@@ -76,13 +76,13 @@
     "path": "./src/domain/entities/transaction.entity.ts",
     "abstract": true,
     "internal": true,
-    "constructorParams": [],
+    "constructorParams": ["amount", "status", "method"],
     "toJsonParams": [],
     "useCache": true,
     "compositePK": false,
     "simplePK": true
   },
   "origin": "./src/domain/entities/transaction.entity.ts",
-  "hash": "4c354996ce087a95a7816cbe66decd20",
-  "version": "6.4.15"
+  "hash": "d50fce0b4fc88bd871c03b10662200ad",
+  "version": "6.4.16"
 }

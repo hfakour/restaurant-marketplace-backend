@@ -138,6 +138,6 @@
     "collection": "support_message_entity"
   },
   "origin": "./src/domain/entities/support-message.entity.ts",
-  "hash": "dd546ed8d9189f61fd3ef1aeb0637f26",
-  "version": "6.4.15"
+  "hash": "e28ee9a6075bfd08c6ff4e80f137aff9",
+  "version": "6.4.16"
 }

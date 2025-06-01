@@ -169,6 +169,6 @@
     "collection": "coupon_entity"
   },
   "origin": "./src/domain/entities/coupon.entity.ts",
-  "hash": "13624adcbea0c137ee59394fb97279d1",
-  "version": "6.4.15"
+  "hash": "66ba66bb7ca1e484754f7a1548904722",
+  "version": "6.4.16"
 }

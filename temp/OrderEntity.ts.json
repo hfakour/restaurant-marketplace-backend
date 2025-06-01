@@ -181,6 +181,6 @@
     "collection": "order_entity"
   },
   "origin": "./src/domain/entities/order.entity.ts",
-  "hash": "58357d99cd497c2212fb13e8c2bae970",
-  "version": "6.4.15"
+  "hash": "3e637fd941eddff7166b346a7a0c0b05",
+  "version": "6.4.16"
 }

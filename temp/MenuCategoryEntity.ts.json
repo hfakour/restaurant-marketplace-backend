@@ -90,6 +90,6 @@
     "collection": "menu_category_entity"
   },
   "origin": "./src/domain/entities/menu-category.entity.ts",
-  "hash": "a64b55cabf7813cdf8c4fb3a5e0a3673",
-  "version": "6.4.15"
+  "hash": "d44d20d2b998f5458676071d79e24739",
+  "version": "6.4.16"
 }

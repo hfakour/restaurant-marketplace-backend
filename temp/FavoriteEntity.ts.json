@@ -80,6 +80,6 @@
     "collection": "favorite_entity"
   },
   "origin": "./src/domain/entities/favorite.entity.ts",
-  "hash": "29dfd277fa4377843aef1d7f4a4e41a9",
-  "version": "6.4.15"
+  "hash": "795d46831ee7aa5a9db4dd28449ac79b",
+  "version": "6.4.16"
 }
