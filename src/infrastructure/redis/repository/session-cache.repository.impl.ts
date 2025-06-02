@@ -4,7 +4,8 @@ import { Inject, Injectable } from '@nestjs/common';
 import { Cache, CACHE_MANAGER } from '@nestjs/cache-manager';
 
 import { ISessionCacheRepository } from 'src/domain/repository/session-cache.repository.interface';
-import { SessionToken, UserId } from 'src/domain/types/entity-types';
+import { UserId } from 'src/domain/types/entity-types';
+import { SessionToken } from 'src/domain/types/cache/cache-types';
 
 @Injectable()
 export class SessionCacheRepository implements ISessionCacheRepository {

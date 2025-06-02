@@ -4,7 +4,8 @@ import { Inject, Injectable } from '@nestjs/common';
 import { Cache, CACHE_MANAGER } from '@nestjs/cache-manager';
 
 import { IOtpCodeRepository } from 'src/domain/repository/otp-code.repository.interface';
-import { OtpCode, UserId } from 'src/domain/types/entity-types';
+import { UserId } from 'src/domain/types/entity-types';
+import { OtpCode } from 'src/domain/types/cache/cache-types';
 
 @Injectable()
 export class OtpCodeRepository implements IOtpCodeRepository {
