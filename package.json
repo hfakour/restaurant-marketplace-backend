@@ -21,11 +21,16 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@mikro-orm/core": "^6.4.16",
     "@nestjs/common": "^11.0.1",
     "@nestjs/core": "^11.0.1",
+    "@nestjs/graphql": "^13.1.0",
     "@nestjs/platform-express": "^11.0.1",
+    "graphql-scalars": "^1.24.2",
+    "graphql-ws": "^6.0.5",
     "reflect-metadata": "^0.2.2",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
