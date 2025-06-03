@@ -1,8 +1,8 @@
 // src/domain/types/cache/wishlist-cache.mapper.ts
 
-import { WishlistEntity } from 'src/domain/entities/wishlist.entity';
-import { Food } from 'src/domain/entities/food.entity';
-import { Restaurant } from 'src/domain/entities/restaurant.entity';
+import { WishlistEntity } from 'src/domain/entity/wishlist.entity';
+import { FoodEntity } from 'src/domain/entity/food.entity';
+import { RestaurantEntity } from 'src/domain/entity/restaurant.entity';
 import { CachedWishlist } from '../cache-types';
 
 export class WishlistCacheMapper {
@@ -11,8 +11,8 @@ export class WishlistCacheMapper {
     return {
       id: entity.id,
       title: entity.title,
-      foodIds: [...entity.foods].map((food: Food) => food.id),
-      restaurantIds: [...entity.restaurants].map((rest: Restaurant) => rest.id),
+      foodIds: [...entity.foods].map((food: FoodEntity) => food.id),
+      restaurantIds: [...entity.restaurants].map((rest: RestaurantEntity) => rest.id),
       createdAt: entity.createdAt.toISOString(),
       updatedAt: entity.updatedAt.toISOString(),
     };
@@ -26,9 +26,9 @@ export class WishlistCacheMapper {
     entity.title = cached.title;
 
     // Use empty proxies (lazy references)
-    entity.foods.set(cached.foodIds.map((id) => ({ id }) as Food));
+    entity.foods.set(cached.foodIds.map((id) => ({ id }) as FoodEntity));
 
-    entity.restaurants.set(cached.restaurantIds.map((id) => ({ id }) as Restaurant));
+    entity.restaurants.set(cached.restaurantIds.map((id) => ({ id }) as RestaurantEntity));
 
     entity.createdAt = new Date(cached.createdAt);
     entity.updatedAt = new Date(cached.updatedAt);

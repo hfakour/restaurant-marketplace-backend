@@ -4,10 +4,9 @@ import { EntityManager, EntityRepository } from '@mikro-orm/core';
 import { InjectEntityManager, InjectRepository } from '@mikro-orm/nestjs';
 import { Injectable } from '@nestjs/common';
 
-import { ReviewEntity } from 'src/domain/entities/review.entity';
+import { ReviewEntity } from 'src/domain/entity/review.entity';
 import { IReviewRepository } from 'src/domain/repository/review.repository.interface';
-import { Restaurant } from 'src/domain/entities/restaurant.entity';
-import { Food } from 'src/domain/entities/food.entity';
+import { FoodId, RestaurantId, ReviewId } from 'src/domain/types/entity-types';
 
 @Injectable()
 export class ReviewRepository implements IReviewRepository {
@@ -20,17 +19,17 @@ export class ReviewRepository implements IReviewRepository {
   ) {}
 
   // 🔍 Find review by its ID
-  async findById(id: ReviewEntity['id']): Promise<ReviewEntity | null> {
+  async findById(id: ReviewId): Promise<ReviewEntity | null> {
     return this.repo.findOne({ id });
   }
 
   // 🔍 Get all reviews for a specific restaurant
-  async findByRestaurant(restaurantId: Restaurant['id']): Promise<ReviewEntity[]> {
+  async findByRestaurant(restaurantId: RestaurantId): Promise<ReviewEntity[]> {
     return this.repo.find({ restaurant: { id: restaurantId } });
   }
 
   // 🔍 Get all reviews for a specific food item
-  async findByFood(foodId: Food['id']): Promise<ReviewEntity[]> {
+  async findByFood(foodId: FoodId): Promise<ReviewEntity[]> {
     return this.repo.find({ food: { id: foodId } });
   }
 
@@ -47,7 +46,7 @@ export class ReviewRepository implements IReviewRepository {
   }
 
   // ❌ Delete review by ID
-  async delete(id: ReviewEntity['id']): Promise<void> {
+  async delete(id: ReviewId): Promise<void> {
     const review = await this.findById(id);
     if (review) {
       this.em.remove(review);

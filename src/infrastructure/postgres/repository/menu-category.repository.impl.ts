@@ -4,8 +4,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectEntityManager, InjectRepository } from '@mikro-orm/nestjs';
 import { EntityManager, EntityRepository } from '@mikro-orm/core';
 
-import { MenuCategoryEntity } from 'src/domain/entities/menu-category.entity';
+import { MenuCategoryEntity } from 'src/domain/entity/menu-category.entity';
 import { IMenuCategoryRepository } from 'src/domain/repository/menu-category.repository.interface';
+import { MenuCategoryId } from 'src/domain/types/entity-types';
 
 @Injectable()
 export class MenuCategoryRepository implements IMenuCategoryRepository {
@@ -18,7 +19,7 @@ export class MenuCategoryRepository implements IMenuCategoryRepository {
   ) {}
 
   // 🔍 Find category by its ID
-  async findById(id: MenuCategoryEntity['id']): Promise<MenuCategoryEntity | null> {
+  async findById(id: MenuCategoryId): Promise<MenuCategoryEntity | null> {
     return this.repo.findOne({ id });
   }
 
@@ -40,7 +41,7 @@ export class MenuCategoryRepository implements IMenuCategoryRepository {
   }
 
   // ❌ Delete category by ID
-  async delete(id: MenuCategoryEntity['id']): Promise<void> {
+  async delete(id: MenuCategoryId): Promise<void> {
     const existing = await this.findById(id);
     if (existing) {
       this.em.remove(existing);

@@ -4,11 +4,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectEntityManager, InjectRepository } from '@mikro-orm/nestjs';
 import { EntityManager, EntityRepository } from '@mikro-orm/core';
 
-import { FavoriteEntity } from 'src/domain/entities/favorite.entity';
+import { FavoriteEntity } from 'src/domain/entity/favorite.entity';
 import { IFavoriteRepository } from 'src/domain/repository/favorite.repository.interface';
-import { User } from 'src/domain/entities/user.entity';
-import { Food } from 'src/domain/entities/food.entity';
-import { Restaurant } from 'src/domain/entities/restaurant.entity';
+import { FavoriteId, FoodId, RestaurantId, UserId } from 'src/domain/types/entity-types';
 
 @Injectable()
 export class FavoriteRepository implements IFavoriteRepository {
@@ -21,17 +19,17 @@ export class FavoriteRepository implements IFavoriteRepository {
   ) {}
 
   // 👤 Find all favorites for a user
-  async findByUserId(userId: User['id']): Promise<FavoriteEntity[]> {
+  async findByUserId(userId: UserId): Promise<FavoriteEntity[]> {
     return this.repo.find({ user: { id: userId } });
   }
 
   // 🏪 Find all favorites for a specific restaurant
-  async findByRestaurantId(restaurantId: Restaurant['id']): Promise<FavoriteEntity[]> {
+  async findByRestaurantId(restaurantId: RestaurantId): Promise<FavoriteEntity[]> {
     return this.repo.find({ restaurant: { id: restaurantId } });
   }
 
   // 🍕 Find all favorites for a specific food item
-  async findByFoodId(foodId: Food['id']): Promise<FavoriteEntity[]> {
+  async findByFoodId(foodId: FoodId): Promise<FavoriteEntity[]> {
     return this.repo.find({ food: { id: foodId } });
   }
 
@@ -42,7 +40,7 @@ export class FavoriteRepository implements IFavoriteRepository {
   }
 
   // ❌ Remove favorite by ID
-  async delete(id: FavoriteEntity['id']): Promise<void> {
+  async delete(id: FavoriteId): Promise<void> {
     const existing = await this.findById(id);
     if (existing) {
       this.em.remove(existing);
@@ -51,7 +49,7 @@ export class FavoriteRepository implements IFavoriteRepository {
   }
 
   // 🔍 Internal: Fetch favorite by ID
-  private async findById(id: FavoriteEntity['id']): Promise<FavoriteEntity | null> {
+  private async findById(id: FavoriteId): Promise<FavoriteEntity | null> {
     return this.repo.findOne({ id });
   }
 }

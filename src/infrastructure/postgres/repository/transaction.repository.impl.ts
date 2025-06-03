@@ -4,44 +4,48 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository, InjectEntityManager } from '@mikro-orm/nestjs';
 import { EntityRepository, EntityManager } from '@mikro-orm/core';
 
-import { Transaction } from 'src/domain/entities/transaction.entity';
+import { TransactionEntity } from 'src/domain/entity/transaction.entity';
 import { ITransactionRepository } from 'src/domain/repository/transaction.repository.interface';
-import { User } from 'src/domain/entities/user.entity';
+import { TransactionId, TransactionRestaurantId, UserId } from 'src/domain/types/entity-types';
 
 @Injectable()
 export class TransactionRepository implements ITransactionRepository {
   constructor(
-    @InjectRepository(Transaction, 'default')
-    private readonly transactionRepo: EntityRepository<Transaction>,
+    @InjectRepository(TransactionEntity, 'default')
+    private readonly transactionRepo: EntityRepository<TransactionEntity>,
 
     @InjectEntityManager('default')
     private readonly em: EntityManager,
   ) {}
 
   // 🔍 Find transaction by ID
-  async findById(id: Transaction['id']): Promise<Transaction | null> {
+  async findById(id: TransactionId): Promise<TransactionEntity | null> {
     return await this.transactionRepo.findOne({ id });
   }
 
   // 🔍 Get all transactions made by a specific user
-  async findByUserId(userId: User['id']): Promise<Transaction[]> {
+  async findByUserId(userId: UserId): Promise<TransactionEntity[]> {
     return await this.transactionRepo.find({ user: { id: userId } });
   }
 
+  async findByRestaurantId(restaurantId: TransactionRestaurantId): Promise<TransactionEntity[]> {
+    return await this.transactionRepo.find({ restaurant: { id: restaurantId } });
+  }
+
   // ➕ Create a new transaction
-  async create(transaction: Transaction): Promise<void> {
+  async create(transaction: TransactionEntity): Promise<void> {
     this.em.persist(transaction);
     await this.em.flush();
   }
 
   // 🔄 Update existing transaction
-  async update(transaction: Transaction): Promise<void> {
+  async update(transaction: TransactionEntity): Promise<void> {
     this.em.persist(transaction);
     await this.em.flush();
   }
 
   // ❌ Delete a transaction by ID
-  async delete(id: Transaction['id']): Promise<void> {
+  async delete(id: TransactionId): Promise<void> {
     const transaction = await this.findById(id);
     if (transaction) {
       this.em.remove(transaction);
@@ -50,7 +54,7 @@ export class TransactionRepository implements ITransactionRepository {
   }
 
   // ✅ Check if transaction exists by ID
-  async existsById(id: Transaction['id']): Promise<boolean> {
+  async existsById(id: TransactionId): Promise<boolean> {
     const count = await this.transactionRepo.count({ id });
     return count > 0;
   }

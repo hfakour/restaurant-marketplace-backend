@@ -1,6 +1,6 @@
 // === Redis Cache Types ===
 
-import { User } from 'src/domain/entities/user.entity';
+import { UserEntity } from 'src/domain/entity/user.entity';
 import { UserId } from '../entity-types';
 
 // Stores a short-lived OTP code (e.g. "936421")
@@ -18,7 +18,7 @@ export type UserCache = {
 };
 
 export class UserMapper {
-  static toCache(user: User): UserCache {
+  static toCache(user: UserEntity): UserCache {
     return {
       id: user.id,
       fullName: user.fullName,
@@ -27,7 +27,7 @@ export class UserMapper {
     };
   }
 
-  static fromCache(data: UserCache): Partial<User> {
+  static fromCache(data: UserCache): Partial<UserEntity> {
     return {
       id: data.id,
       fullName: data.fullName,

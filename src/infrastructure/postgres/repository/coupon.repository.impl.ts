@@ -4,9 +4,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository, InjectEntityManager } from '@mikro-orm/nestjs';
 import { EntityRepository, EntityManager } from '@mikro-orm/core';
 
-import { CouponEntity } from 'src/domain/entities/coupon.entity';
+import { CouponEntity } from 'src/domain/entity/coupon.entity';
 import { ICouponRepository } from 'src/domain/repository/coupon.repository.interface';
-import { Restaurant } from 'src/domain/entities/restaurant.entity';
+import { CouponCode, CouponId, RestaurantId } from 'src/domain/types/entity-types';
 
 @Injectable()
 export class CouponRepository implements ICouponRepository {
@@ -19,12 +19,12 @@ export class CouponRepository implements ICouponRepository {
   ) {}
 
   // 🔍 Find coupon by its unique code (e.g., SAVE10)
-  async findByCode(code: CouponEntity['code']): Promise<CouponEntity | null> {
+  async findByCode(code: CouponCode): Promise<CouponEntity | null> {
     return await this.couponRepo.findOne({ code });
   }
 
   // 🔍 Find all active coupons that belong to a specific restaurant
-  async findActiveByRestaurantId(restaurantId: Restaurant['id']): Promise<CouponEntity[]> {
+  async findActiveByRestaurantId(restaurantId: RestaurantId): Promise<CouponEntity[]> {
     return await this.couponRepo.find({
       restaurant: { id: restaurantId },
       isActive: true,
@@ -56,7 +56,7 @@ export class CouponRepository implements ICouponRepository {
   }
 
   // ❌ Delete a coupon by its ID
-  async delete(id: CouponEntity['id']): Promise<void> {
+  async delete(id: CouponId): Promise<void> {
     const coupon = await this.couponRepo.findOne({ id });
     if (coupon) {
       this.em.remove(coupon);

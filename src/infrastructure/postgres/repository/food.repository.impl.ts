@@ -4,50 +4,50 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository, InjectEntityManager } from '@mikro-orm/nestjs';
 import { EntityRepository, EntityManager } from '@mikro-orm/core';
 
-import { Food } from 'src/domain/entities/food.entity';
+import { FoodEntity } from 'src/domain/entity/food.entity';
 import { IFoodRepository } from 'src/domain/repository/food.repository.interface';
-import { MenuEntity } from 'src/domain/entities/menu.entity';
-import { MenuCategoryEntity } from 'src/domain/entities/menu-category.entity';
+import { MenuEntity } from 'src/domain/entity/menu.entity';
+import { FoodId, MenuCategoryId } from 'src/domain/types/entity-types';
 
 @Injectable()
 export class FoodRepository implements IFoodRepository {
   constructor(
-    @InjectRepository(Food, 'default')
-    private readonly repo: EntityRepository<Food>,
+    @InjectRepository(FoodEntity, 'default')
+    private readonly repo: EntityRepository<FoodEntity>,
 
     @InjectEntityManager('default')
     private readonly em: EntityManager,
   ) {}
 
   // 🔍 Find a food item by ID
-  async findById(id: Food['id']): Promise<Food | null> {
+  async findById(id: FoodEntity['id']): Promise<FoodEntity | null> {
     return this.repo.findOne({ id });
   }
 
   // 🍽️ Get all foods for a specific menu
-  async findByMenuId(menuId: MenuEntity['id']): Promise<Food[]> {
+  async findByMenuId(menuId: MenuEntity['id']): Promise<FoodEntity[]> {
     return this.repo.find({ menu: { id: menuId } });
   }
 
   // 🧾 Get all foods in a category
-  async findByCategoryId(categoryId: MenuCategoryEntity['id']): Promise<Food[]> {
+  async findByCategoryId(categoryId: MenuCategoryId): Promise<FoodEntity[]> {
     return this.repo.find({ menuCategory: { id: categoryId } });
   }
 
   // 💾 Save new food
-  async save(food: Food): Promise<void> {
+  async save(food: FoodEntity): Promise<void> {
     this.em.persist(food);
     await this.em.flush();
   }
 
   // 🔄 Update food
-  async update(food: Food): Promise<void> {
+  async update(food: FoodEntity): Promise<void> {
     this.em.persist(food);
     await this.em.flush();
   }
 
   // ❌ Delete food by ID
-  async delete(id: Food['id']): Promise<void> {
+  async delete(id: FoodId): Promise<void> {
     const food = await this.findById(id);
     if (food) {
       this.em.remove(food);

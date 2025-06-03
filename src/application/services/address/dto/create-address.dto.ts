@@ -2,49 +2,50 @@
 
 import { InputType, Field, Float, ID } from '@nestjs/graphql';
 import { IsOptional, IsUUID, IsString, IsNumber, IsNotEmpty } from 'class-validator';
+import { RestaurantId, UserId } from 'src/domain/types/entity-types';
 
-@InputType() // 👈 Enables this DTO to be used in GraphQL mutations
+@InputType()
 export class CreateAddressDto {
   @Field(() => ID, { nullable: true })
   @IsOptional()
   @IsUUID()
-  userId?: string; // Optional user ID if address belongs to a user
+  userId?: UserId; // 🎯 Use UserId type for full type safety
 
   @Field(() => ID, { nullable: true })
   @IsOptional()
   @IsUUID()
-  restaurantId?: string; // Optional restaurant ID if address belongs to a restaurant
+  restaurantId?: RestaurantId; // 🎯 Use RestaurantId type
 
   @Field()
   @IsString()
   @IsNotEmpty()
-  title: string; // e.g., "Home", "Work", "Branch 1"
+  title!: string;
 
   @Field()
   @IsString()
   @IsNotEmpty()
-  street: string;
+  street!: string;
 
   @Field()
   @IsString()
   @IsNotEmpty()
-  city: string;
+  city!: string;
 
   @Field()
   @IsString()
   @IsNotEmpty()
-  postalCode: string;
+  postalCode!: string;
 
   @Field()
   @IsString()
   @IsNotEmpty()
-  country: string;
+  country!: string;
 
   @Field(() => Float)
   @IsNumber()
-  latitude: number; // e.g., 40.7128
+  latitude!: number;
 
   @Field(() => Float)
   @IsNumber()
-  longitude: number; // e.g., -74.0060
+  longitude!: number;
 }

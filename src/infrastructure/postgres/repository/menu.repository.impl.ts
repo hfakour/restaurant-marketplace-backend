@@ -4,9 +4,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectEntityManager, InjectRepository } from '@mikro-orm/nestjs';
 import { EntityManager, EntityRepository } from '@mikro-orm/core';
 
-import { MenuEntity } from 'src/domain/entities/menu.entity';
+import { MenuEntity } from 'src/domain/entity/menu.entity';
 import { IMenuRepository } from 'src/domain/repository/menu.repository.interface';
-import { Restaurant } from 'src/domain/entities/restaurant.entity';
+import { MenuId, RestaurantId } from 'src/domain/types/entity-types';
 
 @Injectable()
 export class MenuRepository implements IMenuRepository {
@@ -19,12 +19,12 @@ export class MenuRepository implements IMenuRepository {
   ) {}
 
   // 🔍 Find a menu by its ID
-  async findById(id: MenuEntity['id']): Promise<MenuEntity | null> {
+  async findById(id: MenuId): Promise<MenuEntity | null> {
     return this.repo.findOne({ id });
   }
 
   // 🔍 Get all menus for a specific restaurant
-  async findByRestaurantId(restaurantId: Restaurant['id']): Promise<MenuEntity[]> {
+  async findByRestaurantId(restaurantId: RestaurantId): Promise<MenuEntity[]> {
     return this.repo.find({ restaurant: { id: restaurantId } });
   }
 
@@ -41,7 +41,7 @@ export class MenuRepository implements IMenuRepository {
   }
 
   // ❌ Delete a menu by ID
-  async delete(id: MenuEntity['id']): Promise<void> {
+  async delete(id: MenuId): Promise<void> {
     const existing = await this.findById(id);
     if (existing) {
       this.em.remove(existing);

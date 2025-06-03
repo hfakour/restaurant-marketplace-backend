@@ -1,11 +1,11 @@
-// src/infrastructure/redis/user-cache.repository.impl.ts
-
 import { Inject, Injectable } from '@nestjs/common';
-import { Cache, CACHE_MANAGER } from '@nestjs/cache-manager';
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
+import { Cache } from 'cache-manager';
 
-import { IUserCacheRepository } from 'src/domain/repository/user-cache.repository.interface';
 import { UserId } from 'src/domain/types/entity-types';
-import { UserCache } from 'src/domain/types/cache/cache-types';
+import { IUserCacheRepository } from 'src/domain/repository/user-cache.repository.interface';
+import { UserEntity } from 'src/domain/entity/user.entity';
+import { UserCacheMapper } from 'src/domain/types/cache/user/user-cache.mapper';
 
 @Injectable()
 export class UserCacheRepository implements IUserCacheRepository {
@@ -14,21 +14,45 @@ export class UserCacheRepository implements IUserCacheRepository {
     private readonly cache: Cache,
   ) {}
 
-  private getKey(userId: UserId): string {
+  private getUserKey(userId: UserId) {
     return `user:${userId}`;
   }
 
-  async findById(userId: UserId): Promise<UserCache | null> {
-    const raw = await this.cache.get<string>(this.getKey(userId));
-    return raw ? (JSON.parse(raw) as UserCache) : null;
+  private getPendingUpdateKey(userId: UserId) {
+    return `user:${userId}:pending`;
   }
 
-  async save(userId: UserId, data: UserCache): Promise<void> {
-    const ttl = 3600; // 1 hour
-    await this.cache.set(this.getKey(userId), JSON.stringify(data), ttl);
+  async save(user: UserEntity, ttl = 3600): Promise<void> {
+    const key = this.getUserKey(user.id);
+    const cacheModel = UserCacheMapper.toCacheModel(user);
+    await this.cache.set(key, cacheModel, ttl);
+  }
+
+  async get(userId: UserId): Promise<UserEntity | null> {
+    const key = this.getUserKey(userId);
+    const cached = await this.cache.get<ReturnType<typeof UserCacheMapper.toCacheModel>>(key);
+    return cached ? UserCacheMapper.fromCacheModel(cached) : null;
   }
 
   async delete(userId: UserId): Promise<void> {
-    await this.cache.del(this.getKey(userId));
+    const key = this.getUserKey(userId);
+    await this.cache.del(key);
+  }
+
+  async savePendingUpdate(user: UserEntity): Promise<void> {
+    const key = this.getPendingUpdateKey(user.id);
+    const cacheModel = UserCacheMapper.toCacheModel(user);
+    await this.cache.set(key, cacheModel);
+  }
+
+  async getPendingUpdate(userId: UserId): Promise<UserEntity | null> {
+    const key = this.getPendingUpdateKey(userId);
+    const cached = await this.cache.get<ReturnType<typeof UserCacheMapper.toCacheModel>>(key);
+    return cached ? UserCacheMapper.fromCacheModel(cached) : null;
+  }
+
+  async clearPendingUpdate(userId: UserId): Promise<void> {
+    const key = this.getPendingUpdateKey(userId);
+    await this.cache.del(key);
   }
 }

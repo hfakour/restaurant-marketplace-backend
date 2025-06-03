@@ -4,44 +4,44 @@ import { Injectable } from '@nestjs/common';
 import { EntityManager, EntityRepository } from '@mikro-orm/core';
 import { InjectEntityManager, InjectRepository } from '@mikro-orm/nestjs';
 
-import { Table } from 'src/domain/entities/table.entity';
+import { TableEntity } from 'src/domain/entity/table.entity';
 import { ITableRepository } from 'src/domain/repository/table.repository.interface';
-import { Restaurant } from 'src/domain/entities/restaurant.entity';
+import { RestaurantId, TableId } from 'src/domain/types/entity-types';
 
 @Injectable()
 export class TableRepository implements ITableRepository {
   constructor(
-    @InjectRepository(Table, 'default')
-    private readonly repo: EntityRepository<Table>,
+    @InjectRepository(TableEntity, 'default')
+    private readonly repo: EntityRepository<TableEntity>,
 
     @InjectEntityManager('default')
     private readonly em: EntityManager,
   ) {}
 
   // 🔍 Find table by ID
-  async findById(id: Table['id']): Promise<Table | null> {
+  async findById(id: TableId): Promise<TableEntity | null> {
     return this.repo.findOne({ id });
   }
 
   // 🔍 Get all tables for a specific restaurant
-  async findByRestaurant(restaurantId: Restaurant['id']): Promise<Table[]> {
+  async findByRestaurant(restaurantId: RestaurantId): Promise<TableEntity[]> {
     return this.repo.find({ restaurant: { id: restaurantId } });
   }
 
   // ➕ Add a new table
-  async create(table: Table): Promise<void> {
+  async create(table: TableEntity): Promise<void> {
     this.em.persist(table);
     await this.em.flush();
   }
 
   // 🔄 Update an existing table
-  async update(table: Table): Promise<void> {
+  async update(table: TableEntity): Promise<void> {
     this.em.persist(table);
     await this.em.flush();
   }
 
   // ❌ Remove a table by ID
-  async delete(id: Table['id']): Promise<void> {
+  async delete(id: TableId): Promise<void> {
     const table = await this.findById(id);
     if (table) {
       this.em.remove(table);
@@ -50,7 +50,7 @@ export class TableRepository implements ITableRepository {
   }
 
   // ✅ Check if a table exists by ID
-  async existsById(id: Table['id']): Promise<boolean> {
+  async existsById(id: TableId): Promise<boolean> {
     const count = await this.repo.count({ id });
     return count > 0;
   }

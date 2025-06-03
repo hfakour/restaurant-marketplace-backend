@@ -4,9 +4,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository, InjectEntityManager } from '@mikro-orm/nestjs';
 import { EntityRepository, EntityManager } from '@mikro-orm/core';
 
-import { OrderEntity } from 'src/domain/entities/order.entity';
+import { OrderEntity } from 'src/domain/entity/order.entity';
 import { IOrderRepository } from 'src/domain/repository/order.repository.interface';
-import { User } from 'src/domain/entities/user.entity';
+import { OrderId, UserId } from 'src/domain/types/entity-types';
 
 @Injectable()
 export class OrderRepository implements IOrderRepository {
@@ -19,7 +19,7 @@ export class OrderRepository implements IOrderRepository {
   ) {}
 
   // 🔍 Find one order by ID
-  async findById(id: OrderEntity['id']): Promise<OrderEntity | null> {
+  async findById(id: OrderId): Promise<OrderEntity | null> {
     return this.repo.findOne(
       { id },
       {
@@ -29,7 +29,7 @@ export class OrderRepository implements IOrderRepository {
   }
 
   // 🔍 Find all orders placed by a specific user
-  async findAllByUser(userId: User['id']): Promise<OrderEntity[]> {
+  async findAllByUser(userId: UserId): Promise<OrderEntity[]> {
     return this.repo.find(
       { user: { id: userId } },
       {
@@ -51,7 +51,7 @@ export class OrderRepository implements IOrderRepository {
   }
 
   // ❌ Delete an order by ID
-  async delete(id: OrderEntity['id']): Promise<void> {
+  async delete(id: OrderId): Promise<void> {
     const existing = await this.findById(id);
     if (existing) {
       this.em.remove(existing);

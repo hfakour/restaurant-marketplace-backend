@@ -4,9 +4,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository, InjectEntityManager } from '@mikro-orm/nestjs';
 import { EntityRepository, EntityManager } from '@mikro-orm/core';
 
-import { PaymentEntity } from 'src/domain/entities/payment.entity';
+import { PaymentEntity } from 'src/domain/entity/payment.entity';
 import { IPaymentRepository } from 'src/domain/repository/payment.repository.interface';
-import { OrderEntity } from 'src/domain/entities/order.entity';
+import { OrderId, PaymentId } from 'src/domain/types/entity-types';
 
 @Injectable()
 export class PaymentRepository implements IPaymentRepository {
@@ -19,12 +19,12 @@ export class PaymentRepository implements IPaymentRepository {
   ) {}
 
   // 🔍 Get payment by ID
-  async findById(id: PaymentEntity['id']): Promise<PaymentEntity | null> {
+  async findById(id: PaymentId): Promise<PaymentEntity | null> {
     return this.repo.findOne({ id }, { populate: ['order'] });
   }
 
   // 🔍 Get payment by associated order ID
-  async findByOrderId(orderId: OrderEntity['id']): Promise<PaymentEntity | null> {
+  async findByOrderId(orderId: OrderId): Promise<PaymentEntity | null> {
     return this.repo.findOne({ order: { id: orderId } }, { populate: ['order'] });
   }
 
@@ -41,7 +41,7 @@ export class PaymentRepository implements IPaymentRepository {
   }
 
   // ❌ Delete payment by ID
-  async delete(id: PaymentEntity['id']): Promise<void> {
+  async delete(id: PaymentId): Promise<void> {
     const existing = await this.findById(id);
     if (existing) {
       this.em.remove(existing);

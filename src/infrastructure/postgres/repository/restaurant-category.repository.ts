@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { EntityManager, EntityRepository } from '@mikro-orm/core';
 
-import { RestaurantCategoryEntity } from 'src/domain/entities/restaurant-category.entity';
+import { RestaurantCategoryEntity } from 'src/domain/entity/restaurant-category.entity';
 import { IRestaurantCategoryRepository } from 'src/domain/repository/restaurant-category.repository';
 import { RestaurantCategoryId } from 'src/domain/types/entity-types';
 

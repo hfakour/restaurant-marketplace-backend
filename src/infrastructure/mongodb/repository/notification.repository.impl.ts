@@ -6,7 +6,7 @@ import { InjectRepository, InjectEntityManager } from '@mikro-orm/nestjs';
 
 import { INotificationRepository } from 'src/domain/repository/notification.repository.interface';
 import { NotificationId, NotificationUserId } from 'src/domain/types/entity-types';
-import { NotificationEntity } from 'src/domain/entities/notification.entity';
+import { NotificationEntity } from 'src/domain/entity/notification.entity';
 
 @Injectable()
 export class NotificationRepository implements INotificationRepository {

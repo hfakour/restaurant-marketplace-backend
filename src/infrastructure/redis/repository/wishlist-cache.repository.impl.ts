@@ -10,7 +10,7 @@ import {
 } from 'src/domain/repository/wishlist-cache.repository';
 
 import { WishlistUserId } from 'src/domain/types/entity-types';
-import { WishlistEntity } from 'src/domain/entities/wishlist.entity';
+import { WishlistEntity } from 'src/domain/entity/wishlist.entity';
 import { WishlistCacheMapper } from 'src/domain/types/cache/wishlist/wishlist-cache.mapper';
 
 @Injectable()

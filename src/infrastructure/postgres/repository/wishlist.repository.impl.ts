@@ -4,9 +4,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository, InjectEntityManager } from '@mikro-orm/nestjs';
 import { EntityRepository, EntityManager } from '@mikro-orm/core';
 
-import { WishlistEntity } from 'src/domain/entities/wishlist.entity';
+import { WishlistEntity } from 'src/domain/entity/wishlist.entity';
 import { IWishlistRepository } from 'src/domain/repository/wishlist.repository.interface';
-import { User } from 'src/domain/entities/user.entity';
+import { UserId, WishlistId } from 'src/domain/types/entity-types';
 
 @Injectable()
 export class WishlistRepository implements IWishlistRepository {
@@ -19,12 +19,12 @@ export class WishlistRepository implements IWishlistRepository {
   ) {}
 
   // 🔍 Find wishlist item by ID
-  async findById(id: WishlistEntity['id']): Promise<WishlistEntity | null> {
+  async findById(id: WishlistId): Promise<WishlistEntity | null> {
     return await this.wishlistRepo.findOne({ id });
   }
 
   // 🔍 Get all wishlist items for a specific user
-  async findByUserId(userId: User['id']): Promise<WishlistEntity[]> {
+  async findByUserId(userId: UserId): Promise<WishlistEntity[]> {
     return await this.wishlistRepo.find({ user: { id: userId } });
   }
 
@@ -41,7 +41,7 @@ export class WishlistRepository implements IWishlistRepository {
   }
 
   // ❌ Delete wishlist entry by ID
-  async delete(id: WishlistEntity['id']): Promise<void> {
+  async delete(id: WishlistId): Promise<void> {
     const wishlist = await this.findById(id);
     if (wishlist) {
       this.em.remove(wishlist);
@@ -50,7 +50,7 @@ export class WishlistRepository implements IWishlistRepository {
   }
 
   // ✅ Check if wishlist item exists by ID
-  async existsById(id: WishlistEntity['id']): Promise<boolean> {
+  async existsById(id: WishlistId): Promise<boolean> {
     const count = await this.wishlistRepo.count({ id });
     return count > 0;
   }
